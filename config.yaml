@@ -1,0 +1,38 @@
+# HK IPO Monitor Configuration
+
+# 飞书 Webhook (通过环境变量 FEISHU_WEBHOOK 覆盖)
+feishu_webhook: ""
+
+# 数据源
+sources:
+  hkex: "https://www1.hkexnews.hk/search/titleSearchServlet.do"
+  xueqiu: "https://stock.xueqiu.com"
+  hkex_keywords:
+    - "公開發售"
+    - "聆訊"
+    - "招股"
+
+# 推送规则
+push:
+  # 新股出现时推送
+  new_ipo: true
+  # 认购倍数跳档推送 (倍)
+  subscription_thresholds: [10, 50, 100, 500, 1000, 3000]
+  # 截止前N小时推送最终建议
+  deadline_warning_hours: 4
+  # 暗盘推送
+  dark_pool: true
+
+# 评分权重
+scoring:
+  valuation: 0.18       # 估值定价
+  subscription: 0.15    # 认购热度
+  financial: 0.14       # 财务状况
+  industry: 0.10        # 行业竞争
+  cornerstone: 0.10     # 基石投资者
+  fundamentals: 0.08    # 公司基本面
+  underwriter: 0.08     # 承销发行
+  liquidity: 0.07       # 上市后流动性
+  greenshoe: 0.05       # 绿鞋机制
+  shareholders: 0.03    # 股东构成
+  legal: 0.02           # 法律诉讼
