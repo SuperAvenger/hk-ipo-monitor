@@ -97,7 +97,8 @@ def push_new_ipo(ipo: dict, score: dict, ai_analysis: dict = None):
 
     content = (
         f"**{code} {name}**  {status_emoji}\n\n"
-        f"📊 综合评分: **{total}/100** {stars}\n"
+        f"📊 综合评分: **{total}/100** {stars}"
+        f"  (Phase {score.get('phase', 1)})\n"
         f"🎯 量化建议: **{rec}**\n"
     )
 
