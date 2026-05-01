@@ -12,13 +12,10 @@ from pathlib import Path
 # 添加项目路径
 sys.path.insert(0, str(Path(__file__).parent))
 
-from scraper.hkex import fetch_all, load_state, save_state, get_new_ipos, should_push_subscription, fetch_dark_pool_price
+from scraper.hkex import fetch_all, load_state, save_state
 from analyzer.scorer import score_ipo, predict_first_day_return
 from analyzer.ai_analyzer import ai_analyze
-from notifier.feishu import (
-    push_new_ipo, push_subscription_update, push_score_report,
-    push_dark_pool, push_error, send_card,
-)
+from notifier.feishu import push_new_ipo
 
 logging.basicConfig(
     level=logging.INFO,
@@ -84,42 +81,15 @@ def run():
 
         logger.info(f"  {code} {ipo.get('name', '')}: {score['total']}/100 {score['recommendation']}")
 
-        # 3c. 推送判断
+        # 3c. 推送判断 — 只推一次，后续不再推送
         if is_new:
             logger.info(f"  → 新股! AI 分析 + 推送通知")
-            # AI 深度分析
             analysis = ai_analyze(ipo, score)
             push_new_ipo(ipo, score, ai_analysis=analysis)
-        elif old_state.get("status") != "expired" and ipo.get("apply_deadline"):
-            # 检查是否刚过期
-            try:
-                dl = datetime.strptime(ipo["apply_deadline"].replace("/", "-"), "%Y-%m-%d")
-                if dl.date() < datetime.now().date() and old_state.get("status") != "expired":
-                    logger.info(f"  → 招股截止: {ipo['name']}")
-            except (ValueError, TypeError):
-                pass
-            # 认购倍数跳档?
-            new_mult = ipo.get("raw", ipo).get("subscription_multiple") or 0
-            old_mult = old_state.get("subscription_multiple", 0)
-            if new_mult > 0 and should_push_subscription(code, new_mult, state):
-                logger.info(f"  → 认购跳档 {old_mult}→{new_mult}, 推送通知")
-                push_subscription_update(ipo, old_mult, new_mult)
+        else:
+            logger.info(f"  {code} 已推送过, 跳过")
 
-        # 3d. 暗盘检查 (上市前一日)
-        listing_date = ipo.get("raw", ipo).get("listing_date", "")
-        if listing_date:
-            try:
-                ldate = datetime.strptime(str(listing_date)[:10], "%Y-%m-%d")
-                today = datetime.now()
-                if (ldate - today).days == 1:
-                    dark = fetch_dark_pool_price(ipo.get("code", ""))
-                    if dark and dark.get("percent") is not None:
-                        logger.info(f"  → 暗盘: {dark['percent']:+.1f}%, 推送通知")
-                        push_dark_pool(ipo, dark, score)
-            except (ValueError, TypeError):
-                pass
-
-        # 3e. 更新状态
+        # 3d. 更新状态
         # 判断招股状态
         apply_dl = ipo.get("apply_deadline", "")
         status = "open"
