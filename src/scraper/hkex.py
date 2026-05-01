@@ -1,9 +1,10 @@
 """
 港股新股数据采集 - 多源聚合
 数据源:
-  1. 港交所披露易 titleSearchServlet API — 官方文件 (curl, 有 rate limit)
-  2. 雪球 IPO — 行情+认购 (需 cookie, 可能 403)
-  3. 新浪港股 IPO — 备用
+  1. AAStocks — 即将上市新股列表 (主数据源, 结构化, 免费)
+  2. 港交所披露易 titleSearchServlet API — 官方文件 (辅助, 补充文档链接)
+  3. 雪球 IPO — 行情+认购 (需 cookie, 可能 403)
+  4. 新浪港股 IPO — 备用
 
 已知限制:
   - HKEX API 有 TLS 指纹检测 + 请求频率限制, 必须用 curl + 间隔 ≥3s
@@ -21,6 +22,7 @@ from typing import Optional
 from urllib.parse import quote
 
 import requests
+from bs4 import BeautifulSoup
 
 logger = logging.getLogger(__name__)
 
@@ -32,6 +34,7 @@ USER_AGENT = (
 DATA_DIR = Path(__file__).parent.parent / "data"
 HKEX_SEARCH_URL = "https://www1.hkexnews.hk/search/titleSearchServlet.do"
 HKEX_DOC_BASE = "https://www1.hkexnews.hk"
+AASTOCKS_LIST_URL = "http://www.aastocks.com/sc/stocks/market/ipo/upcomingipo/company-summary"
 
 # 港交所 IPO 相关文档关键词 — 实测有效, 能捕获真正的新股
 HKEX_IPO_KEYWORDS = [
@@ -51,6 +54,107 @@ def _get_session() -> requests.Session:
         "Accept-Language": "zh-CN,zh;q=0.9,en;q=0.8",
     })
     return s
+
+
+# ── AAStocks: 即将上市新股列表 (主数据源) ──────────────────────
+
+def fetch_aastocks_upcoming() -> list[dict]:
+    """
+    从 AAStocks 获取即将上市的新股列表。
+    数据结构化、稳定、免费, 包含招股价/每手/入场费/上市日期等。
+    """
+    try:
+        resp = requests.get(
+            AASTOCKS_LIST_URL,
+            headers={"User-Agent": USER_AGENT},
+            timeout=20,
+        )
+        resp.raise_for_status()
+    except Exception as e:
+        logger.warning(f"AAStocks fetch failed: {e}")
+        return []
+
+    soup = BeautifulSoup(resp.text, "html.parser")
+    ipos = []
+
+    for table in soup.find_all("table"):
+        rows = table.find_all("tr")
+        if not rows:
+            continue
+        headers = [c.get_text(" ", strip=True) for c in rows[0].find_all(["th", "td"])]
+        blob = " ".join(headers)
+        if "招股价" not in blob or "上市日期" not in blob:
+            continue
+
+        # 解析列索引
+        def col(name_substr: str) -> int:
+            for i, h in enumerate(headers):
+                if name_substr in h:
+                    return i
+            return -1
+
+        i_name = col("公司名称")
+        i_ind = col("行业")
+        i_price = col("招股价")
+        i_lot = col("每手")
+        i_fee = col("入场费")
+        i_deadline = col("招股截止")
+        i_grey = col("暗盘")
+        i_listdate = col("上市日期")
+
+        for tr in rows[1:]:
+            cells = [c.get_text(" ", strip=True) for c in tr.find_all(["td", "th"])]
+            max_idx = max(i_name, i_listdate, i_price)
+            if len(cells) < max_idx + 1:
+                continue
+
+            name_cell = cells[i_name] if i_name >= 0 else ""
+            m = re.search(r"(\d{5})\.HK", name_cell)
+            code = m.group(1) if m else ""
+            if not code:
+                continue
+            name = re.sub(r"\d{5}\.HK", "", name_cell).strip()
+
+            def cell(idx: int) -> str:
+                return cells[idx].strip() if 0 <= idx < len(cells) else ""
+
+            ipo = {
+                "code": code,
+                "name": name,
+                "industry": cell(i_ind),
+                "price_range": cell(i_price),
+                "lot_size": _safe_int(cell(i_lot)),
+                "entry_fee": _safe_float(cell(i_fee)),
+                "apply_deadline": cell(i_deadline),
+                "grey_market_date": cell(i_grey),
+                "listing_date": cell(i_listdate),
+                "source": "aastocks",
+                "detail_url": f"http://www.aastocks.com/sc/stocks/market/ipo/upcomingipo/company-summary?symbol={code}",
+            }
+            ipos.append(ipo)
+
+        break  # 只处理第一个匹配的表格
+
+    logger.info(f"AAStocks: found {len(ipos)} upcoming IPOs")
+    return ipos
+
+
+def _safe_int(s: str) -> Optional[int]:
+    if not s or s == "N/A":
+        return None
+    try:
+        return int(s.replace(",", "").replace(" ", ""))
+    except ValueError:
+        return None
+
+
+def _safe_float(s: str) -> Optional[float]:
+    if not s or s == "N/A":
+        return None
+    try:
+        return float(s.replace(",", "").replace(" ", ""))
+    except ValueError:
+        return None
 
 
 # ── 港交所: curl 封装 (绕过 TLS 指纹) ────────────────────────
@@ -375,9 +479,13 @@ def should_push_subscription(code: str, new_mult: float, state: dict) -> bool:
 def fetch_all() -> list[dict]:
     """
     汇总所有数据源, 返回合并后的新股列表。
-    当前可靠源: HKEX 官方文件 (curl)
+    主数据源: AAStocks (结构化, 稳定)
+    辅助: 港交所官方文件 (补充文档链接)
     """
-    # 1. 港交所官方文件
+    # 1. AAStocks 即将上市列表 (主数据源)
+    aastocks_ipos = fetch_aastocks_upcoming()
+
+    # 2. 港交所官方文件 (补充)
     hkex_docs = fetch_hkex_ipo_docs(days_back=60)
     hkex_by_code: dict[str, list] = {}
     for doc in hkex_docs:
@@ -385,29 +493,26 @@ def fetch_all() -> list[dict]:
         if code:
             hkex_by_code.setdefault(code, []).append(doc)
 
-    # 2. 雪球 (大概率 403)
+    # 3. 雪球 (大概率 403, 仅作补充)
     xueqiu_ipos = fetch_xueqiu_ipo_list()
 
-    # 3. 新浪 (已下线, 仅尝试)
-    sina_ipos = fetch_sina_hk_ipo()
-
-    # 4. 合并
+    # 4. 合并: AAStocks 为主, 补充 HKEX 文档和雪球数据
     merged_by_code: dict[str, dict] = {}
 
-    for ipo in xueqiu_ipos:
+    for ipo in aastocks_ipos:
         code = ipo["code"]
         if code in hkex_by_code:
             ipo["hkex_docs"] = hkex_by_code[code]
         merged_by_code[code] = ipo
 
-    for ipo in sina_ipos:
+    for ipo in xueqiu_ipos:
         code = ipo["code"]
         if code not in merged_by_code:
             if code in hkex_by_code:
                 ipo["hkex_docs"] = hkex_by_code[code]
             merged_by_code[code] = ipo
 
-    # 5. HKEX-only (新出现的, 行情源还没收录)
+    # 5. HKEX-only (新出现的, AAStocks 还没收录)
     for code, docs in hkex_by_code.items():
         if code not in merged_by_code:
             merged_by_code[code] = {
@@ -430,7 +535,7 @@ def fetch_all() -> list[dict]:
     merged = list(merged_by_code.values())
     logger.info(
         f"Merged: {len(merged)} total IPOs "
-        f"(xueqiu={len(xueqiu_ipos)}, sina={len(sina_ipos)}, "
+        f"(aastocks={len(aastocks_ipos)}, xueqiu={len(xueqiu_ipos)}, "
         f"hkex={len(hkex_docs)} docs for {len(hkex_by_code)} stocks)"
     )
     return merged
