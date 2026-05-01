@@ -71,7 +71,7 @@ def send_card(title: str, content: str, color: str = "blue",
 
 # ── 业务消息模板 ─────────────────────────────────────────────
 
-def push_new_ipo(ipo: dict, score: dict):
+def push_new_ipo(ipo: dict, score: dict, ai_analysis: dict = None):
     """新股出现通知 — 招股开始时推送，打新决策用"""
     code = ipo.get("code", "")
     name = ipo.get("name", "")
@@ -98,11 +98,49 @@ def push_new_ipo(ipo: dict, score: dict):
     content = (
         f"**{code} {name}**  {status_emoji}\n\n"
         f"📊 综合评分: **{total}/100** {stars}\n"
-        f"🎯 建议: **{rec}**\n"
+        f"🎯 量化建议: **{rec}**\n"
     )
 
     if pred:
         content += f"📈 预测首日: **{pred}**\n"
+
+    # AI 分析结果
+    if ai_analysis:
+        rating = ai_analysis.get("rating", "")
+        summary = ai_analysis.get("summary", "")
+        confidence = ai_analysis.get("confidence", 0)
+        strategy = ai_analysis.get("strategy", "")
+        first_day = ai_analysis.get("first_day_guess", "")
+
+        # 评级颜色
+        rating_map = {
+            "强烈推荐": "🔴", "推荐": "🟠", "谨慎推荐": "🟡",
+            "中性": "⚪", "不推荐": "⚫"
+        }
+        rating_icon = rating_map.get(rating, "⚪")
+
+        content += f"\n━━━ 🤖 AI 分析 ━━━\n"
+        content += f"{rating_icon} **{rating}** (信心度: {confidence}/10)\n"
+        if summary:
+            content += f"💬 {summary}\n"
+        if first_day:
+            content += f"📊 首日预测: **{first_day}**\n"
+        if strategy:
+            content += f"🎯 策略: {strategy}\n"
+
+        # 优势
+        pros = ai_analysis.get("pros", [])
+        if pros:
+            content += "\n**✅ 利好:**\n"
+            for p in pros[:3]:
+                content += f"  • {p}\n"
+
+        # 风险
+        cons = ai_analysis.get("cons", [])
+        if cons:
+            content += "\n**⚠️ 风险:**\n"
+            for c in cons[:3]:
+                content += f"  • {c}\n"
 
     content += "\n━━━ 打新关键信息 ━━━\n"
 

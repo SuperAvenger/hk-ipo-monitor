@@ -14,6 +14,7 @@ sys.path.insert(0, str(Path(__file__).parent))
 
 from scraper.hkex import fetch_all, load_state, save_state, get_new_ipos, should_push_subscription, fetch_dark_pool_price
 from analyzer.scorer import score_ipo, predict_first_day_return
+from analyzer.ai_analyzer import ai_analyze
 from notifier.feishu import (
     push_new_ipo, push_subscription_update, push_score_report,
     push_dark_pool, push_error, send_card,
@@ -85,8 +86,10 @@ def run():
 
         # 3c. 推送判断
         if is_new:
-            logger.info(f"  → 新股! 推送通知")
-            push_new_ipo(ipo, score)
+            logger.info(f"  → 新股! AI 分析 + 推送通知")
+            # AI 深度分析
+            analysis = ai_analyze(ipo, score)
+            push_new_ipo(ipo, score, ai_analysis=analysis)
         elif old_state.get("status") != "expired" and ipo.get("apply_deadline"):
             # 检查是否刚过期
             try:
