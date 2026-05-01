@@ -290,3 +290,37 @@ def push_error(msg: str):
         content=msg,
         color="red",
     )
+
+
+def push_hot_ipo(ipo: dict, mult: float):
+    """热门追加推送 — 认购超 500 倍时"""
+    code = ipo.get("code", "")
+    name = ipo.get("name", "")
+
+    if mult >= 3000:
+        heat = "🔥🔥🔥 超级热门"
+    elif mult >= 1000:
+        heat = "🔥🔥 非常热门"
+    else:
+        heat = "🔥 热门"
+
+    content = (
+        f"**{code} {name}**\n\n"
+        f"认购倍数: **{mult:,.0f} 倍** {heat}\n\n"
+        f"市场情绪非常积极，建议重点关注！\n"
+    )
+
+    fee = ipo.get("entry_fee", 0)
+    if fee:
+        content += f"\n🎫 入场费: **{fee:,.0f}** HKD"
+        content += f"\n💡 10 倍杠杆: 约 **{fee * 10:,.0f}** HKD"
+
+    deadline = ipo.get("apply_deadline", "")
+    if deadline:
+        content += f"\n⏰ 截止: **{deadline}**"
+
+    send_card(
+        title=f"🔥 热门新股 — {code} {name} ({mult:,.0f}倍)",
+        content=content,
+        color="red",
+    )
