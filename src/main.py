@@ -87,7 +87,14 @@ def run():
         if is_new:
             logger.info(f"  → 新股! 推送通知")
             push_new_ipo(ipo, score)
-        else:
+        elif old_state.get("status") != "expired" and ipo.get("apply_deadline"):
+            # 检查是否刚过期
+            try:
+                dl = datetime.strptime(ipo["apply_deadline"].replace("/", "-"), "%Y-%m-%d")
+                if dl.date() < datetime.now().date() and old_state.get("status") != "expired":
+                    logger.info(f"  → 招股截止: {ipo['name']}")
+            except (ValueError, TypeError):
+                pass
             # 认购倍数跳档?
             new_mult = ipo.get("raw", ipo).get("subscription_multiple") or 0
             old_mult = old_state.get("subscription_multiple", 0)
@@ -110,11 +117,25 @@ def run():
                 pass
 
         # 3e. 更新状态
+        # 判断招股状态
+        apply_dl = ipo.get("apply_deadline", "")
+        status = "open"
+        if apply_dl:
+            try:
+                dl = datetime.strptime(apply_dl.replace("/", "-"), "%Y-%m-%d")
+                if dl.date() < datetime.now().date():
+                    status = "expired"
+            except (ValueError, TypeError):
+                pass
+
         state.setdefault("ipos", {})[code] = {
             "name": ipo.get("name", ""),
             "score": score["total"],
             "recommendation": score["recommendation"],
             "subscription_multiple": ipo.get("raw", ipo).get("subscription_multiple", 0),
+            "status": status,
+            "apply_deadline": apply_dl,
+            "listing_date": ipo.get("listing_date", ""),
             "last_seen": datetime.now().isoformat(),
         }
 

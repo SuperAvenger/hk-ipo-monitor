@@ -72,7 +72,7 @@ def send_card(title: str, content: str, color: str = "blue",
 # ── 业务消息模板 ─────────────────────────────────────────────
 
 def push_new_ipo(ipo: dict, score: dict):
-    """新股出现通知"""
+    """新股出现通知 — 招股开始时推送，打新决策用"""
     code = ipo.get("code", "")
     name = ipo.get("name", "")
     total = score["total"]
@@ -82,8 +82,21 @@ def push_new_ipo(ipo: dict, score: dict):
     # 评分星星
     stars = "⭐" * min(5, int(total / 20))
 
+    # 判断是否还在招股期
+    deadline = ipo.get("apply_deadline", "")
+    is_open = True
+    if deadline:
+        try:
+            from datetime import datetime
+            dl = datetime.strptime(deadline.replace("/", "-"), "%Y-%m-%d")
+            is_open = dl.date() >= datetime.now().date()
+        except (ValueError, TypeError):
+            pass
+
+    status_emoji = "🟢 招股中" if is_open else "🔴 已截止"
+
     content = (
-        f"**{code} {name}**\n\n"
+        f"**{code} {name}**  {status_emoji}\n\n"
         f"📊 综合评分: **{total}/100** {stars}\n"
         f"🎯 建议: **{rec}**\n"
     )
@@ -91,16 +104,40 @@ def push_new_ipo(ipo: dict, score: dict):
     if pred:
         content += f"📈 预测首日: **{pred}**\n"
 
-    # 关键信息
+    content += "\n━━━ 打新关键信息 ━━━\n"
+
+    # 关键打新信息
     raw = ipo.get("raw", ipo)
-    if raw.get("price_range"):
-        content += f"💰 招股价: {raw['price_range']} HKD\n"
-    if raw.get("subscription_start"):
-        content += f"📅 认购期: {raw.get('subscription_start', '')} ~ {raw.get('subscription_end', '')}\n"
-    if raw.get("listing_date"):
-        content += f"🗓️ 上市日: {raw['listing_date']}\n"
-    if raw.get("lot_size"):
-        content += f"📦 每手: {raw['lot_size']} 股\n"
+    price = raw.get("price_range") or ipo.get("price_range", "")
+    if price:
+        content += f"💰 招股价: **{price}** HKD\n"
+
+    lot = raw.get("lot_size") or ipo.get("lot_size")
+    if lot:
+        content += f"📦 每手: **{lot}** 股\n"
+
+    fee = ipo.get("entry_fee") or raw.get("entry_fee")
+    if fee:
+        content += f"🎫 入场费: **{fee:,.0f}** HKD\n"
+
+    if deadline:
+        content += f"⏰ 招股截止: **{deadline}**\n"
+
+    grey = ipo.get("grey_market_date") or raw.get("grey_market_date")
+    if grey:
+        content += f"🌙 暗盘: **{grey}**\n"
+
+    list_date = raw.get("listing_date") or ipo.get("listing_date", "")
+    if list_date:
+        content += f"🗓️ 上市日: **{list_date}**\n"
+
+    industry = ipo.get("industry") or raw.get("industry", "")
+    if industry:
+        content += f"🏭 行业: {industry}\n"
+
+    # 杠杆提示
+    if is_open and fee:
+        content += f"\n💡 **10倍杠杆参考:** 需约 **{fee * 10:,.0f}** HKD 融资额度\n"
 
     # 维度评分
     content += "\n**维度评分:**\n"
@@ -110,10 +147,15 @@ def push_new_ipo(ipo: dict, score: dict):
         bar = "█" * int(dims[k] / 10) + "░" * (10 - int(dims[k] / 10))
         content += f"  {_dim_label(k)}: {bar} {dims[k]:.0f}\n"
 
+    # 详情按钮
+    detail_url = f"http://www.aastocks.com/sc/stocks/market/ipo/upcomingipo/company-summary?symbol={code}"
+
     send_card(
-        title=f"🆕 港股新股速报 — {code}",
+        title=f"🆕 港股新股速报 — {code} {name}",
         content=content,
-        color="blue" if total >= 65 else "orange",
+        color="blue" if is_open else "gray",
+        button_text="📋 查看招股书" if is_open else "",
+        button_url=detail_url if is_open else "",
     )
 
 
