@@ -124,6 +124,10 @@ def fetch_hkex_ipo_docs(days_back: int = 60) -> list[dict]:
                 if _is_structured_or_etf(stock_code, r.get("STOCK_NAME", ""), r.get("TITLE", "")):
                     continue
 
+                # 过滤: 跳过"首次公開發售後"类公告 (购股权/章程修订等, 不是真正的新股)
+                if _is_post_ipo_doc(r.get("TITLE", ""), r.get("LONG_TEXT", "")):
+                    continue
+
                 doc = {
                     "news_id": news_id,
                     "stock_code": stock_code,
@@ -183,6 +187,28 @@ def _is_structured_or_etf(code: str, name: str, title: str) -> bool:
             return True
     for kw in struct_keywords:
         if kw in combined:
+            return True
+    return False
+
+
+def _is_post_ipo_doc(title: str, doc_type: str) -> bool:
+    """
+    判断是否为"首次公開發售後"类公告, 这些是已上市公司的后续文件,
+    不是真正的新股招股。包括:
+      - 首次公開發售後購股權計劃
+      - 首次公開發售後受限制股份單位計劃
+      - 首次公開發售後股份激勵計劃
+    """
+    combined = f"{title} {doc_type}"
+    post_ipo_patterns = [
+        "首次公開發售後",
+        "首次公開招股後",
+        "IPO後",
+        "post-IPO",
+        "post IPO",
+    ]
+    for pattern in post_ipo_patterns:
+        if pattern in combined:
             return True
     return False
 
