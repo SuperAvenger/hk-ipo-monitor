@@ -1,0 +1,30 @@
+{
+  "ipos": {
+    "01187": {
+      "name": "可孚医疗",
+      "score": 0,
+      "recommendation": "",
+      "subscription_multiple": 0,
+      "status": "open",
+      "apply_deadline": "",
+      "listing_date": "",
+      "pushed": true,
+      "hot_pushed": false,
+      "last_seen": "2026-05-04T23:14:32.288435"
+    },
+    "01236": {
+      "name": "乐动机器人",
+      "score": 0,
+      "recommendation": "",
+      "subscription_multiple": 0,
+      "status": "open",
+      "apply_deadline": "",
+      "listing_date": "",
+      "pushed": true,
+      "hot_pushed": false,
+      "last_seen": "2026-05-04T23:14:32.288449"
+    }
+  },
+  "hkex_docs": {},
+  "last_check": null
+}
