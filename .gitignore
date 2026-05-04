@@ -12,10 +12,8 @@ build/
 venv/
 env/
 
-# Data (runtime generated)
-src/data/state.json
+# Data (runtime generated) — history.json 可能很大，仅忽略它
 src/data/history.json
-data/state.json
 data/history.json
 
 # IDE
