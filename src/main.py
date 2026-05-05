@@ -46,6 +46,7 @@ def run():
     # 1. 加载状态
     state = load_state()
     history = load_history()
+    logger.info(f"已知新股: {len(state.get('ipos', {}))} 只, 已推送: {sum(1 for v in state.get('ipos', {}).values() if v.get('pushed'))}")
 
     # 2. 采集数据
     logger.info(">>> 采集数据...")
