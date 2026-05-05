@@ -1,5 +1,41 @@
 {
   "ipos": {
+    "07630": {
+      "name": "英派药业─B",
+      "score": 58.5,
+      "recommendation": "🟠 建议申购",
+      "subscription_multiple": 0,
+      "status": "open",
+      "apply_deadline": "2026/05/08",
+      "listing_date": "2026/05/13",
+      "pushed": true,
+      "hot_pushed": false,
+      "last_seen": "2026-05-05T19:11:41.305260"
+    },
+    "01236": {
+      "name": "乐动机器人",
+      "score": 55.3,
+      "recommendation": "🟡 观望",
+      "subscription_multiple": 0,
+      "status": "open",
+      "apply_deadline": "2026/05/06",
+      "listing_date": "2026/05/11",
+      "pushed": true,
+      "hot_pushed": false,
+      "last_seen": "2026-05-05T19:11:41.305158"
+    },
+    "07666": {
+      "name": "剂泰科技─P",
+      "score": 55.0,
+      "recommendation": "🟡 观望",
+      "subscription_multiple": 0,
+      "status": "open",
+      "apply_deadline": "2026/05/08",
+      "listing_date": "2026/05/13",
+      "pushed": true,
+      "hot_pushed": false,
+      "last_seen": "2026-05-05T19:11:41.305362"
+    },
     "01187": {
       "name": "可孚医疗",
       "score": 0,
@@ -11,20 +47,8 @@
       "pushed": true,
       "hot_pushed": false,
       "last_seen": "2026-05-04T23:14:32.288435"
-    },
-    "01236": {
-      "name": "乐动机器人",
-      "score": 0,
-      "recommendation": "",
-      "subscription_multiple": 0,
-      "status": "open",
-      "apply_deadline": "",
-      "listing_date": "",
-      "pushed": true,
-      "hot_pushed": false,
-      "last_seen": "2026-05-04T23:14:32.288449"
     }
   },
   "hkex_docs": {},
-  "last_check": null
+  "last_check": "2026-05-05T19:11:41.305368"
 }

@@ -31,7 +31,7 @@ USER_AGENT = (
     "AppleWebKit/537.36 (KHTML, like Gecko) Chrome/125.0.0.0 Safari/537.36"
 )
 
-DATA_DIR = Path(__file__).parent.parent / "data"
+DATA_DIR = Path(__file__).parent.parent.parent / "data"
 HKEX_SEARCH_URL = "https://www1.hkexnews.hk/search/titleSearchServlet.do"
 HKEX_DOC_BASE = "https://www1.hkexnews.hk"
 AASTOCKS_LIST_URL = "http://www.aastocks.com/sc/stocks/market/ipo/upcomingipo/company-summary"
