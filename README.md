@@ -25,14 +25,14 @@ GitHub Actions (定时触发: 09:00/13:00/16:15/17:00 北京时间)
 ## 配置
 
 1. Fork 本仓库
-2. 在 GitHub Secrets 中添加: `FEISHU_WEBHOOK_URL` = 你的飞书 Webhook 地址
+2. 在 GitHub Secrets 中添加: `FEISHU_WEBHOOK` = 你的飞书 Webhook 地址
 3. 启用 GitHub Actions
 4. 完成!
 
 ## 本地运行
 
 ```bash
-pip install requests beautifulsoup4
+pip install -r requirements.txt
 export FEISHU_WEBHOOK="https://open.feishu.cn/open-apis/bot/v2/hook/your-token"
 python src/main.py
 ```

@@ -14,6 +14,9 @@ concurrency:
   group: ipo-monitor
   cancel-in-progress: false
 
+permissions:
+  contents: write
+
 jobs:
   monitor:
     runs-on: ubuntu-latest
@@ -25,7 +28,7 @@ jobs:
           python-version: '3.11'
 
       - name: Install dependencies
-        run: pip install requests beautifulsoup4
+        run: pip install -r requirements.txt
 
       - name: Run IPO Monitor
         env:
