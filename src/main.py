@@ -86,20 +86,22 @@ def run():
         pushed_before = old_state.get("pushed", False)
         hot_pushed = old_state.get("hot_pushed", False)
 
-        if is_new:
+        if is_new or not pushed_before:
             # 第一次出现 → 推送新股通知
             logger.info(f"  → 新股! AI 分析 + 推送通知")
             analysis = ai_analyze(ipo, score)
-            push_new_ipo(ipo, score, ai_analysis=analysis)
-            pushed_before = True
+            pushed_before = push_new_ipo(ipo, score, ai_analysis=analysis)
+            if not pushed_before:
+                logger.warning(f"  {code} 新股通知发送失败, 保留待重试状态")
         else:
             # 已推送过, 检查是否需要"热门追加推送"
             new_mult = ipo.get("raw", ipo).get("subscription_multiple") or 0
             if new_mult >= 500 and not hot_pushed:
                 logger.info(f"  → 认购 {new_mult} 倍! 热门追加推送")
                 from notifier.feishu import push_hot_ipo
-                push_hot_ipo(ipo, new_mult)
-                hot_pushed = True
+                hot_pushed = push_hot_ipo(ipo, new_mult)
+                if not hot_pushed:
+                    logger.warning(f"  {code} 热门通知发送失败, 保留待重试状态")
             else:
                 logger.info(f"  {code} 已推送过, 跳过")
 

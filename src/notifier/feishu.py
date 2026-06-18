@@ -71,7 +71,7 @@ def send_card(title: str, content: str, color: str = "blue",
 
 # ── 业务消息模板 ─────────────────────────────────────────────
 
-def push_new_ipo(ipo: dict, score: dict, ai_analysis: dict = None):
+def push_new_ipo(ipo: dict, score: dict, ai_analysis: dict = None) -> bool:
     """新股出现通知 — 招股开始时推送，打新决策用"""
     code = ipo.get("code", "")
     name = ipo.get("name", "")
@@ -189,7 +189,7 @@ def push_new_ipo(ipo: dict, score: dict, ai_analysis: dict = None):
     # 详情按钮
     detail_url = f"http://www.aastocks.com/sc/stocks/market/ipo/upcomingipo/company-summary?symbol={code}"
 
-    send_card(
+    return send_card(
         title=f"🆕 港股新股速报 — {code} {name}",
         content=content,
         color="blue" if is_open else "gray",
@@ -292,7 +292,7 @@ def push_error(msg: str):
     )
 
 
-def push_hot_ipo(ipo: dict, mult: float):
+def push_hot_ipo(ipo: dict, mult: float) -> bool:
     """热门追加推送 — 认购超 500 倍时"""
     code = ipo.get("code", "")
     name = ipo.get("name", "")
@@ -319,7 +319,7 @@ def push_hot_ipo(ipo: dict, mult: float):
     if deadline:
         content += f"\n⏰ 截止: **{deadline}**"
 
-    send_card(
+    return send_card(
         title=f"🔥 热门新股 — {code} {name} ({mult:,.0f}倍)",
         content=content,
         color="red",
