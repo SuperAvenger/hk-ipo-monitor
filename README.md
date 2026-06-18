@@ -55,3 +55,7 @@ python src/main.py
 ## 免责声明
 
 本工具仅供研究参考，不构成投资建议。投资有风险，入市需谨慎。
+
+## Roadmap
+
+See [`docs/ROADMAP.md`](docs/ROADMAP.md) for data-quality, calibration, and read-only MCP expansion priorities.
