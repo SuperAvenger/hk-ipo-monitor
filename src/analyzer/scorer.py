@@ -87,6 +87,45 @@ def _log_subscription(mult) -> float:
     return min(98, max(5, score))
 
 
+def _build_assessment(ipo: dict, raw: dict, phase: int) -> tuple[dict, list[str]]:
+    """Describe data completeness and risks so the score is not read as false precision."""
+    checks = {
+        "industry": bool(ipo.get("industry") or raw.get("category")),
+        "cornerstone": "has_cornerstone" in raw or bool(raw.get("cornerstone")),
+        "fundraise": _positive_float(raw.get("fundraise")) > 0,
+        "valuation": bool(raw.get("price_range") or ipo.get("price_range")),
+        "entry_fee": _positive_float(ipo.get("entry_fee")) > 0,
+        "18c_status": "is_18c" in raw,
+        "subscription": _positive_float(raw.get("subscription_multiple")) > 0,
+    }
+    known = sum(checks.values())
+    percent = round(known / len(checks) * 100)
+    if percent >= 75:
+        label = "high"
+    elif percent >= 50:
+        label = "medium"
+    else:
+        label = "low"
+
+    risk_flags = []
+    if phase == 1:
+        risk_flags.append("subscription_data_unavailable")
+    if raw.get("is_18c") is True:
+        risk_flags.append("chapter_18c_company")
+    if _positive_float(ipo.get("entry_fee")) >= 10000:
+        risk_flags.append("high_entry_fee")
+    missing = [name for name, available in checks.items() if not available]
+    if missing:
+        risk_flags.append("missing_data:" + ",".join(missing))
+
+    return {
+        "level": label,
+        "percent": percent,
+        "known_fields": known,
+        "total_fields": len(checks),
+    }, risk_flags
+
+
 def score_ipo(ipo: dict) -> dict:
     """
     对一只新股进行量化评分 (v2 回测校准版)
@@ -213,12 +252,15 @@ def score_ipo(ipo: dict) -> dict:
         label = dim_labels.get(k, k)
         detail_lines.append(f"{label}: {bar} {v:.0f}")
 
+    confidence, risk_flags = _build_assessment(ipo, raw, phase)
     return {
         "total": total,
         "dimensions": dims,
         "recommendation": rec,
         "detail": "\n".join(detail_lines),
         "phase": phase,
+        "confidence": confidence,
+        "risk_flags": risk_flags,
     }
 
 

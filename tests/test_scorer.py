@@ -18,6 +18,8 @@ def test_score_ipo_accepts_numeric_strings():
     assert result["phase"] == 2
     assert result["dimensions"]["subscription"] > 20
     assert 0 <= result["total"] <= 100
+    assert result["confidence"]["level"] in {"medium", "high"}
+    assert "subscription_data_unavailable" not in result["risk_flags"]
 
 
 def test_score_ipo_degrades_invalid_numeric_values():
@@ -32,6 +34,9 @@ def test_score_ipo_degrades_invalid_numeric_values():
     assert result["phase"] == 1
     assert result["dimensions"]["fundraise"] == 50
     assert result["dimensions"]["entry"] == 50
+    assert result["confidence"]["level"] == "low"
+    assert "subscription_data_unavailable" in result["risk_flags"]
+    assert any(flag.startswith("missing_data:") for flag in result["risk_flags"])
 
 
 def test_subscription_score_is_bounded():

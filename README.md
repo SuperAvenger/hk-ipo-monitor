@@ -8,7 +8,9 @@
 - 📊 **11维评分** — 估值/热度/财务/行业/基石/基本面/承销/流动性/绿鞋/股东/法律
 - 🎯 **策略推演** — 预测首日涨幅区间，给出申购/观望/回避建议
 - 📈 **认购追踪** — 认购倍数跳档实时通知
+- 🧭 **置信度与风险提示** — 标注数据完整度、18C、入场费和缺失字段风险
 - 🌙 **暗盘播报** — 上市前暗盘表现跟踪
+- ✍️ **公众号草稿** — 本地生成带来源、风险提示和免责声明的 Markdown 草稿，人工审核后发布
 - 💰 **零成本** — 全部基于 GitHub Actions (免费) + 飞书 Webhook (免费)
 
 ## 架构
@@ -36,6 +38,8 @@ pip install -r requirements.txt
 export FEISHU_WEBHOOK="https://open.feishu.cn/open-apis/bot/v2/hook/your-token"
 python src/main.py
 ```
+
+草稿输出到 `output/wechat-drafts/`。当前不会连接微信公众号或自动发布。
 
 ## 文件结构
 

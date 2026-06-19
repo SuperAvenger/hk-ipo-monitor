@@ -16,6 +16,7 @@ from scraper.hkex import fetch_all, load_state, save_state
 from analyzer.scorer import score_ipo, predict_first_day_return
 from analyzer.ai_analyzer import ai_analyze
 from notifier.feishu import push_new_ipo
+from publisher.wechat_draft import save_wechat_draft
 
 logging.basicConfig(
     level=logging.INFO,
@@ -86,6 +87,7 @@ def run():
         pushed_before = old_state.get("pushed", False)
         hot_pushed = old_state.get("hot_pushed", False)
 
+        analysis = None
         if is_new:
             # 第一次出现 → 推送新股通知
             logger.info(f"  → 新股! AI 分析 + 推送通知")
@@ -102,6 +104,9 @@ def run():
                 hot_pushed = True
             else:
                 logger.info(f"  {code} 已推送过, 跳过")
+
+        draft_path = save_wechat_draft(ipo, score, ai_analysis=analysis)
+        logger.info(f"  公众号草稿: {draft_path}")
 
         # 3d. 更新状态
         # 判断招股状态

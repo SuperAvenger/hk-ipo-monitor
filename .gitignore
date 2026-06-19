@@ -15,6 +15,7 @@ env/
 # Data (runtime generated) — history.json 可能很大，仅忽略它
 src/data/history.json
 data/history.json
+output/
 
 # IDE
 .vscode/
