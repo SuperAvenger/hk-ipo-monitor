@@ -4,7 +4,11 @@ from __future__ import annotations
 
 import re
 from datetime import datetime
+from html import escape
 from pathlib import Path
+
+import bleach
+from markdown import markdown
 
 
 RISK_LABELS = {
@@ -154,6 +158,41 @@ def build_wechat_draft(
     return "\n".join(lines).strip() + "\n"
 
 
+def build_wechat_html(markdown_draft: str, article_title: str) -> str:
+    """Render a standalone, copy-friendly HTML preview for manual publishing."""
+    rendered = markdown(markdown_draft, extensions=["extra", "sane_lists"])
+    body = bleach.clean(
+        rendered,
+        tags={"h1", "h2", "h3", "p", "ul", "ol", "li", "blockquote", "strong", "em", "a", "hr", "code"},
+        attributes={"a": ["href", "title"]},
+        protocols={"http", "https"},
+        strip=True,
+    )
+    return f"""<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>{escape(article_title)}</title>
+  <style>
+    body {{ margin: 0; background: #f5f7fa; color: #1f2937; font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif; }}
+    article {{ width: min(100% - 32px, 720px); margin: 24px auto; padding: 28px; background: #fff; box-sizing: border-box; }}
+    h1 {{ margin: 0 0 22px; font-size: 26px; line-height: 1.4; color: #111827; }}
+    h2 {{ margin: 30px 0 12px; padding-left: 10px; border-left: 4px solid #1677ff; font-size: 19px; line-height: 1.5; }}
+    p, li {{ font-size: 16px; line-height: 1.85; }}
+    blockquote {{ margin: 12px 0; padding: 10px 14px; border-left: 3px solid #94a3b8; background: #f8fafc; color: #475569; }}
+    ul {{ padding-left: 24px; }}
+    a {{ color: #1677ff; word-break: break-all; }}
+    hr {{ margin: 30px 0; border: 0; border-top: 1px solid #e5e7eb; }}
+    strong {{ color: #111827; }}
+    @media (max-width: 560px) {{ article {{ width: 100%; margin: 0; padding: 20px 16px; }} h1 {{ font-size: 23px; }} }}
+  </style>
+</head>
+<body><article>{body}</article></body>
+</html>
+"""
+
+
 def save_wechat_draft(
     ipo: dict,
     score: dict,
@@ -167,8 +206,11 @@ def save_wechat_draft(
     output_dir.mkdir(parents=True, exist_ok=True)
     code = re.sub(r"[^0-9A-Za-z_-]+", "-", str(ipo.get("code", "unknown"))).strip("-") or "unknown"
     path = output_dir / f"{generated_at:%Y-%m-%d}-{code}.md"
-    path.write_text(
-        build_wechat_draft(ipo, score, ai_analysis=ai_analysis, generated_at=generated_at),
+    draft = build_wechat_draft(ipo, score, ai_analysis=ai_analysis, generated_at=generated_at)
+    path.write_text(draft, encoding="utf-8")
+    title = f"港股打新研究｜{ipo.get('code', '')} {ipo.get('name', '')}".strip()
+    path.with_suffix(".html").write_text(
+        build_wechat_html(draft, title),
         encoding="utf-8",
     )
     return path

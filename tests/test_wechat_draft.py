@@ -1,6 +1,6 @@
 from datetime import datetime
 
-from src.publisher.wechat_draft import build_wechat_draft, save_wechat_draft
+from src.publisher.wechat_draft import build_wechat_draft, build_wechat_html, save_wechat_draft
 
 
 def sample_ipo():
@@ -53,3 +53,18 @@ def test_save_wechat_draft_uses_stable_reviewable_filename(tmp_path):
 
     assert path.name == "2026-06-19-09999.md"
     assert path.read_text(encoding="utf-8").startswith("# 港股打新研究")
+    html_path = path.with_suffix(".html")
+    assert html_path.exists()
+    assert "<article>" in html_path.read_text(encoding="utf-8")
+
+
+def test_html_preview_escapes_title_and_renders_sections():
+    html = build_wechat_html(
+        "# 标题\n\n## 风险提示\n\n- 风险一\n\n<script>alert('x')</script>",
+        "<测试标题>",
+    )
+
+    assert "<h2>风险提示</h2>" in html
+    assert "&lt;测试标题&gt;" in html
+    assert "<script>" not in html
+    assert "自动发布" not in html

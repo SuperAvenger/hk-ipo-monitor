@@ -39,7 +39,7 @@ export FEISHU_WEBHOOK="https://open.feishu.cn/open-apis/bot/v2/hook/your-token"
 python src/main.py
 ```
 
-草稿输出到 `output/wechat-drafts/`。当前不会连接微信公众号或自动发布。
+草稿输出到 `output/wechat-drafts/`，同时包含 Markdown 和可在浏览器打开、复制到公众号编辑器的 HTML。当前不会连接微信公众号或自动发布。
 
 ## 文件结构
 
