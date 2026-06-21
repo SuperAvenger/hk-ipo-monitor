@@ -15,6 +15,15 @@ from typing import Optional
 logger = logging.getLogger(__name__)
 
 
+def _positive_float(value, default: float = 0.0) -> float:
+    """Convert scraper values to a positive float without breaking a monitor run."""
+    try:
+        number = float(value)
+    except (TypeError, ValueError):
+        return default
+    return number if math.isfinite(number) and number > 0 else default
+
+
 # 行业景气度评分 (基于 2024-2026 年港股 IPO 首日涨幅统计)
 INDUSTRY_SCORES = {
     "AI": 95, "医疗AI": 95, "人工智能": 95,
@@ -71,11 +80,50 @@ def _match_industry(ipo: dict) -> int:
 
 def _log_subscription(mult) -> float:
     """认购倍数对数化 (0-100 分)"""
-    if not mult or mult <= 0:
+    mult = _positive_float(mult)
+    if not mult:
         return 20
-    mult = float(mult)
     score = 20 + 10.5 * math.log(mult)
     return min(98, max(5, score))
+
+
+def _build_assessment(ipo: dict, raw: dict, phase: int) -> tuple[dict, list[str]]:
+    """Describe data completeness and risks so the score is not read as false precision."""
+    checks = {
+        "industry": bool(ipo.get("industry") or raw.get("category")),
+        "cornerstone": "has_cornerstone" in raw or bool(raw.get("cornerstone")),
+        "fundraise": _positive_float(raw.get("fundraise")) > 0,
+        "valuation": bool(raw.get("price_range") or ipo.get("price_range")),
+        "entry_fee": _positive_float(ipo.get("entry_fee")) > 0,
+        "18c_status": "is_18c" in raw,
+        "subscription": _positive_float(raw.get("subscription_multiple")) > 0,
+    }
+    known = sum(checks.values())
+    percent = round(known / len(checks) * 100)
+    if percent >= 75:
+        label = "high"
+    elif percent >= 50:
+        label = "medium"
+    else:
+        label = "low"
+
+    risk_flags = []
+    if phase == 1:
+        risk_flags.append("subscription_data_unavailable")
+    if raw.get("is_18c") is True:
+        risk_flags.append("chapter_18c_company")
+    if _positive_float(ipo.get("entry_fee")) >= 10000:
+        risk_flags.append("high_entry_fee")
+    missing = [name for name, available in checks.items() if not available]
+    if missing:
+        risk_flags.append("missing_data:" + ",".join(missing))
+
+    return {
+        "level": label,
+        "percent": percent,
+        "known_fields": known,
+        "total_fields": len(checks),
+    }, risk_flags
 
 
 def score_ipo(ipo: dict) -> dict:
@@ -89,8 +137,8 @@ def score_ipo(ipo: dict) -> dict:
     raw = ipo.get("raw", ipo)
 
     dims = {}
-    mult = raw.get("subscription_multiple", 0)
-    has_mult = mult and float(mult) > 0
+    mult = _positive_float(raw.get("subscription_multiple"))
+    has_mult = mult > 0
 
     # ── 共用维度 (Phase 1 & 2 都可用) ──
 
@@ -106,8 +154,8 @@ def score_ipo(ipo: dict) -> dict:
         dims["cornerstone"] = 80 if cornerstone else 35
 
     # 募资规模 (回测 r=0.07)
-    fundraise = raw.get("fundraise", 0)
-    if fundraise and fundraise > 0:
+    fundraise = _positive_float(raw.get("fundraise"))
+    if fundraise:
         dims["fundraise"] = min(90, max(20, 30 + 20 * math.log10(max(0.1, fundraise))))
     else:
         dims["fundraise"] = 50
@@ -120,7 +168,7 @@ def score_ipo(ipo: dict) -> dict:
         dims["valuation"] = 40
 
     # 入场门槛
-    entry_fee = ipo.get("entry_fee", 0)
+    entry_fee = _positive_float(ipo.get("entry_fee"))
     if entry_fee:
         if entry_fee < 3000:
             dims["entry"] = 75
@@ -204,12 +252,15 @@ def score_ipo(ipo: dict) -> dict:
         label = dim_labels.get(k, k)
         detail_lines.append(f"{label}: {bar} {v:.0f}")
 
+    confidence, risk_flags = _build_assessment(ipo, raw, phase)
     return {
         "total": total,
         "dimensions": dims,
         "recommendation": rec,
         "detail": "\n".join(detail_lines),
         "phase": phase,
+        "confidence": confidence,
+        "risk_flags": risk_flags,
     }
 
 

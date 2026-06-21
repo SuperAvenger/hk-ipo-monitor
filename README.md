@@ -8,7 +8,9 @@
 - 📊 **11维评分** — 估值/热度/财务/行业/基石/基本面/承销/流动性/绿鞋/股东/法律
 - 🎯 **策略推演** — 预测首日涨幅区间，给出申购/观望/回避建议
 - 📈 **认购追踪** — 认购倍数跳档实时通知
+- 🧭 **置信度与风险提示** — 标注数据完整度、18C、入场费和缺失字段风险
 - 🌙 **暗盘播报** — 上市前暗盘表现跟踪
+- ✍️ **公众号草稿** — 本地生成带来源、风险提示和免责声明的 Markdown 草稿，人工审核后发布
 - 💰 **零成本** — 全部基于 GitHub Actions (免费) + 飞书 Webhook (免费)
 
 ## 架构
@@ -25,17 +27,19 @@ GitHub Actions (定时触发: 09:00/13:00/16:15/17:00 北京时间)
 ## 配置
 
 1. Fork 本仓库
-2. 在 GitHub Secrets 中添加: `FEISHU_WEBHOOK_URL` = 你的飞书 Webhook 地址
+2. 在 GitHub Secrets 中添加: `FEISHU_WEBHOOK` = 你的飞书 Webhook 地址
 3. 启用 GitHub Actions
 4. 完成!
 
 ## 本地运行
 
 ```bash
-pip install requests beautifulsoup4
+pip install -r requirements.txt
 export FEISHU_WEBHOOK="https://open.feishu.cn/open-apis/bot/v2/hook/your-token"
 python src/main.py
 ```
+
+草稿输出到 `output/wechat-drafts/`，同时包含 Markdown 和可在浏览器打开、复制到公众号编辑器的 HTML。当前不会连接微信公众号或自动发布。
 
 ## 文件结构
 
@@ -55,3 +59,7 @@ python src/main.py
 ## 免责声明
 
 本工具仅供研究参考，不构成投资建议。投资有风险，入市需谨慎。
+
+## Roadmap
+
+See [`docs/ROADMAP.md`](docs/ROADMAP.md) for data-quality, calibration, and read-only MCP expansion priorities.
