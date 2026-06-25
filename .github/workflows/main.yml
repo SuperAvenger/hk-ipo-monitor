@@ -2,12 +2,8 @@ name: HK IPO Monitor
 
 on:
   schedule:
-    # 早盘 (北京 09:00 = UTC 01:00)
-    - cron: '0 1 * * 1-5'
-    # 午后 (北京 14:00 = UTC 06:00)
-    - cron: '0 6 * * 1-5'
-    # 收盘后 (北京 17:00 = UTC 09:00)
-    - cron: '0 9 * * 1-5'
+    # 每天北京时间 10:00 = UTC 02:00
+    - cron: '0 2 * * *'
   workflow_dispatch:
 
 permissions:
