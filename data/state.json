@@ -125,36 +125,36 @@
       "score": 62.1,
       "recommendation": "🟠 建议申购",
       "subscription_multiple": 0,
-      "status": "open",
-      "apply_deadline": "",
-      "listing_date": "",
+      "status": "expired",
+      "apply_deadline": "2026/06/24",
+      "listing_date": "2026/06/29",
       "pushed": true,
       "hot_pushed": false,
-      "last_seen": "2026-06-24T11:42:42.853000"
+      "last_seen": "2026-06-25T02:32:13.383719"
     },
     "02672": {
       "name": "白鸽在线",
       "score": 55.1,
       "recommendation": "🟡 观望",
       "subscription_multiple": 0,
-      "status": "open",
-      "apply_deadline": "",
-      "listing_date": "",
+      "status": "expired",
+      "apply_deadline": "2026/06/24",
+      "listing_date": "2026/06/29",
       "pushed": true,
       "hot_pushed": false,
-      "last_seen": "2026-06-24T11:42:42.853000"
+      "last_seen": "2026-06-25T02:32:13.383899"
     },
     "09637": {
       "name": "礼邦医药─B",
       "score": 60.1,
       "recommendation": "🟠 建议申购",
       "subscription_multiple": 0,
-      "status": "open",
-      "apply_deadline": "",
-      "listing_date": "",
+      "status": "expired",
+      "apply_deadline": "2026/06/24",
+      "listing_date": "2026/06/29",
       "pushed": true,
       "hot_pushed": false,
-      "last_seen": "2026-06-24T11:42:42.853000"
+      "last_seen": "2026-06-25T02:32:13.384042"
     },
     "02697": {
       "name": "真健康医疗─B",
@@ -162,11 +162,11 @@
       "recommendation": "🟠 建议申购",
       "subscription_multiple": 0,
       "status": "open",
-      "apply_deadline": "",
-      "listing_date": "",
+      "apply_deadline": "2026/06/25",
+      "listing_date": "2026/06/30",
       "pushed": true,
       "hot_pushed": false,
-      "last_seen": "2026-06-24T11:42:42.853000"
+      "last_seen": "2026-06-25T02:32:13.384156"
     },
     "03774": {
       "name": "亮晴控股",
@@ -174,11 +174,11 @@
       "recommendation": "⚫ 建议回避",
       "subscription_multiple": 0,
       "status": "open",
-      "apply_deadline": "",
-      "listing_date": "",
+      "apply_deadline": "N/A",
+      "listing_date": "2026/06/30",
       "pushed": true,
       "hot_pushed": false,
-      "last_seen": "2026-06-24T11:42:42.853000"
+      "last_seen": "2026-06-25T02:32:13.384280"
     },
     "03952": {
       "name": "来福谐波",
@@ -186,11 +186,11 @@
       "recommendation": "🟡 观望",
       "subscription_multiple": 0,
       "status": "open",
-      "apply_deadline": "",
-      "listing_date": "",
+      "apply_deadline": "2026/06/25",
+      "listing_date": "2026/06/30",
       "pushed": true,
       "hot_pushed": false,
-      "last_seen": "2026-06-24T11:42:42.853000"
+      "last_seen": "2026-06-25T02:32:13.384424"
     },
     "06715": {
       "name": "鲟龙科技",
@@ -198,11 +198,11 @@
       "recommendation": "🟡 观望",
       "subscription_multiple": 0,
       "status": "open",
-      "apply_deadline": "",
-      "listing_date": "",
+      "apply_deadline": "2026/06/25",
+      "listing_date": "2026/06/30",
       "pushed": true,
       "hot_pushed": false,
-      "last_seen": "2026-06-24T11:42:42.853000"
+      "last_seen": "2026-06-25T02:32:13.384572"
     },
     "06915": {
       "name": "江西生物",
@@ -210,11 +210,11 @@
       "recommendation": "🟡 观望",
       "subscription_multiple": 0,
       "status": "open",
-      "apply_deadline": "",
-      "listing_date": "",
+      "apply_deadline": "2026/06/25",
+      "listing_date": "2026/06/30",
       "pushed": true,
       "hot_pushed": false,
-      "last_seen": "2026-06-24T11:42:42.853000"
+      "last_seen": "2026-06-25T02:32:13.384758"
     },
     "00668": {
       "name": "安克创新",
@@ -222,13 +222,13 @@
       "recommendation": "🟡 观望",
       "subscription_multiple": 0,
       "status": "open",
-      "apply_deadline": "",
-      "listing_date": "",
+      "apply_deadline": "2026/06/26",
+      "listing_date": "2026/07/02",
       "pushed": true,
       "hot_pushed": false,
-      "last_seen": "2026-06-24T11:42:42.853000"
+      "last_seen": "2026-06-25T02:32:13.384912"
     }
   },
   "hkex_docs": {},
-  "last_check": "2026-05-05T19:11:41.305368"
+  "last_check": "2026-06-25T02:32:13.384923"
 }
