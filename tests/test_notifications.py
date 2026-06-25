@@ -30,6 +30,42 @@ class NotificationStateTests(unittest.TestCase):
         with patch("notifier.feishu.send_card", return_value=False):
             self.assertFalse(feishu.push_hot_ipo(ipo, 600))
 
+    def test_new_ipo_uses_investment_note_sections(self):
+        ipo = {
+            "code": "06666",
+            "name": "样例股份",
+            "industry": "消费电子",
+            "price_range": "10.00-12.00",
+            "lot_size": 200,
+            "entry_fee": 2424.2,
+            "apply_deadline": "2026-06-30",
+            "listing_date": "2026-07-08",
+            "subscription_multiple": 88,
+        }
+        score = {
+            "total": 62,
+            "recommendation": "🟠 建议申购",
+            "dimensions": {"industry": 70, "valuation": 55},
+            "phase": 1,
+        }
+
+        with patch("notifier.feishu.send_card", return_value=True) as send_card:
+            self.assertTrue(feishu.push_new_ipo(ipo, score))
+
+        content = send_card.call_args.kwargs["content"]
+        for section in [
+            "❶ **公司信息**",
+            "❷ **估值 / A-H 折价**",
+            "❸ **发行信息**",
+            "❹ **基石、绿鞋与保荐人**",
+            "❺ **公司财务信息**",
+            "❻ **中签率 / 认购热度**",
+            "❼ **总结**",
+        ]:
+            self.assertIn(section, content)
+        self.assertIn("招股价：10.00-12.00 HKD", content)
+        self.assertIn("认购倍数：88 倍", content)
+
     @patch("main.save_history")
     @patch("main.save_state")
     @patch("main.ai_analyze", return_value={})

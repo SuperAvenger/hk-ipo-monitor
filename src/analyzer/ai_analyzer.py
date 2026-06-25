@@ -144,9 +144,20 @@ def analyze_with_llm(ipo: dict, score: dict, search_results: list[dict]) -> Opti
     for r in search_results[:3]:
         search_summary += f" {r.get('text', '')[:100]}"
 
-    prompt = f"""港股新股: {code} {name}, 行业:{industry}, 招股价:{price}, 每手:{lot}, 入场费:{fee}HKD, 截止:{deadline}, 上市:{list_date}, 评分:{score['total']}/100{search_summary}
+    prompt = f"""你是港股打新助手。请按实用、克制、偏交易决策的口吻分析，不要写营销稿。
 
-输出JSON: {{"rating":"推荐/谨慎推荐/不推荐","confidence":7,"summary":"一句话","pros":["利好"],"cons":["风险"],"strategy":"策略","first_day_guess":"+X%~+Y%"}}"""
+新股: {code} {name}
+行业: {industry}
+招股价: {price}
+每手: {lot}
+入场费: {fee} HKD
+截止: {deadline}
+上市: {list_date}
+量化评分: {score['total']}/100
+补充资料: {search_summary}
+
+只输出JSON，不要Markdown，不要代码块。字段如下:
+{{"rating":"强烈推荐/推荐/谨慎推荐/中性/不推荐","confidence":7,"summary":"一句话判断，直接说打还是不打","pros":["最多3条利好"],"cons":["最多3条风险"],"strategy":"申购策略，包含是否打、仓位/杠杆倾向、需要复核的关键条件","first_day_guess":"+X%~+Y%"}}"""
 
     try:
         resp = requests.post(
@@ -162,7 +173,7 @@ def analyze_with_llm(ipo: dict, score: dict, search_results: list[dict]) -> Opti
                     {"role": "user", "content": prompt},
                 ],
                 "temperature": 0.2,
-                "max_tokens": 300,
+                "max_tokens": 600,
             },
             timeout=60,
         )
