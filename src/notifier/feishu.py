@@ -71,7 +71,7 @@ def send_card(title: str, content: str, color: str = "blue",
 
 # ── 业务消息模板 ─────────────────────────────────────────────
 
-def push_new_ipo(ipo: dict, score: dict, ai_analysis: dict = None):
+def push_new_ipo(ipo: dict, score: dict, ai_analysis: dict = None) -> bool:
     """新股出现通知 — 招股开始时推送，打新决策用"""
     code = ipo.get("code", "")
     name = ipo.get("name", "")
@@ -189,7 +189,7 @@ def push_new_ipo(ipo: dict, score: dict, ai_analysis: dict = None):
     # 详情按钮
     detail_url = f"http://www.aastocks.com/sc/stocks/market/ipo/upcomingipo/company-summary?symbol={code}"
 
-    send_card(
+    return send_card(
         title=f"🆕 港股新股速报 — {code} {name}",
         content=content,
         color="blue" if is_open else "gray",
@@ -198,7 +198,7 @@ def push_new_ipo(ipo: dict, score: dict, ai_analysis: dict = None):
     )
 
 
-def push_subscription_update(ipo: dict, old_mult: float, new_mult: float):
+def push_subscription_update(ipo: dict, old_mult: float, new_mult: float) -> bool:
     """认购倍数跳档通知"""
     code = ipo.get("code", "")
     name = ipo.get("name", "")
@@ -219,14 +219,14 @@ def push_subscription_update(ipo: dict, old_mult: float, new_mult: float):
         f"热度: {heat}\n"
     )
 
-    send_card(
+    return send_card(
         title=f"📊 认购热度更新 — {code}",
         content=content,
         color="orange",
     )
 
 
-def push_score_report(ipo: dict, score: dict):
+def push_score_report(ipo: dict, score: dict) -> bool:
     """最终评分报告 (截止前推送)"""
     code = ipo.get("code", "")
     name = ipo.get("name", "")
@@ -243,14 +243,14 @@ def push_score_report(ipo: dict, score: dict):
         f"**全维度评分:**\n{score['detail']}\n"
     )
 
-    send_card(
+    return send_card(
         title=f"🎯 打新建议 — {code} ({rec})",
         content=content,
         color="green" if total >= 65 else "red",
     )
 
 
-def push_dark_pool(ipo: dict, dark_data: dict, score: dict):
+def push_dark_pool(ipo: dict, dark_data: dict, score: dict) -> bool:
     """暗盘表现通知"""
     code = ipo.get("code", "")
     name = ipo.get("name", "")
@@ -276,23 +276,23 @@ def push_dark_pool(ipo: dict, dark_data: dict, score: dict):
         f"💡 {msg}\n"
     )
 
-    send_card(
+    return send_card(
         title=f"🌙 暗盘播报 — {code}",
         content=content,
         color="green" if pct >= 0 else "red",
     )
 
 
-def push_error(msg: str):
+def push_error(msg: str) -> bool:
     """错误通知"""
-    send_card(
+    return send_card(
         title="⚠️ 港股打新监控异常",
         content=msg,
         color="red",
     )
 
 
-def push_hot_ipo(ipo: dict, mult: float):
+def push_hot_ipo(ipo: dict, mult: float) -> bool:
     """热门追加推送 — 认购超 500 倍时"""
     code = ipo.get("code", "")
     name = ipo.get("name", "")
@@ -319,7 +319,7 @@ def push_hot_ipo(ipo: dict, mult: float):
     if deadline:
         content += f"\n⏰ 截止: **{deadline}**"
 
-    send_card(
+    return send_card(
         title=f"🔥 热门新股 — {code} {name} ({mult:,.0f}倍)",
         content=content,
         color="red",
