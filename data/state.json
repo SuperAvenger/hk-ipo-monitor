@@ -161,12 +161,12 @@
       "score": 60.1,
       "recommendation": "🟠 建议申购",
       "subscription_multiple": 0,
-      "status": "open",
+      "status": "expired",
       "apply_deadline": "2026/06/25",
       "listing_date": "2026/06/30",
       "pushed": true,
       "hot_pushed": false,
-      "last_seen": "2026-06-25T02:32:13.384156"
+      "last_seen": "2026-06-26T06:00:06.584755"
     },
     "03774": {
       "name": "亮晴控股",
@@ -178,43 +178,43 @@
       "listing_date": "2026/06/30",
       "pushed": true,
       "hot_pushed": false,
-      "last_seen": "2026-06-25T02:32:13.384280"
+      "last_seen": "2026-06-26T06:00:06.584960"
     },
     "03952": {
       "name": "来福谐波",
       "score": 53.6,
       "recommendation": "🟡 观望",
       "subscription_multiple": 0,
-      "status": "open",
+      "status": "expired",
       "apply_deadline": "2026/06/25",
       "listing_date": "2026/06/30",
       "pushed": true,
       "hot_pushed": false,
-      "last_seen": "2026-06-25T02:32:13.384424"
+      "last_seen": "2026-06-26T06:00:06.585065"
     },
     "06715": {
       "name": "鲟龙科技",
       "score": 53.6,
       "recommendation": "🟡 观望",
       "subscription_multiple": 0,
-      "status": "open",
+      "status": "expired",
       "apply_deadline": "2026/06/25",
       "listing_date": "2026/06/30",
       "pushed": true,
       "hot_pushed": false,
-      "last_seen": "2026-06-25T02:32:13.384572"
+      "last_seen": "2026-06-26T06:00:06.585179"
     },
     "06915": {
       "name": "江西生物",
       "score": 57.1,
       "recommendation": "🟡 观望",
       "subscription_multiple": 0,
-      "status": "open",
+      "status": "expired",
       "apply_deadline": "2026/06/25",
       "listing_date": "2026/06/30",
       "pushed": true,
       "hot_pushed": false,
-      "last_seen": "2026-06-25T02:32:13.384758"
+      "last_seen": "2026-06-26T06:00:06.585320"
     },
     "00668": {
       "name": "安克创新",
@@ -226,9 +226,21 @@
       "listing_date": "2026/07/02",
       "pushed": true,
       "hot_pushed": false,
-      "last_seen": "2026-06-25T02:32:13.384912"
+      "last_seen": "2026-06-26T06:00:06.585441"
+    },
+    "02667": {
+      "name": "同仁堂医养",
+      "score": 49.8,
+      "recommendation": "🟡 观望",
+      "subscription_multiple": 0,
+      "status": "open",
+      "apply_deadline": "2026/07/02",
+      "listing_date": "2026/07/07",
+      "pushed": false,
+      "hot_pushed": false,
+      "last_seen": "2026-06-26T06:00:17.939778"
     }
   },
   "hkex_docs": {},
-  "last_check": "2026-06-25T02:32:13.384923"
+  "last_check": "2026-06-26T06:00:17.939807"
 }
