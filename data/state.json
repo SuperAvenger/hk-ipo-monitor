@@ -178,7 +178,7 @@
       "listing_date": "2026/06/30",
       "pushed": true,
       "hot_pushed": false,
-      "last_seen": "2026-06-28T06:06:26.879927"
+      "last_seen": "2026-06-29T06:26:59.731207"
     },
     "03952": {
       "name": "来福谐波",
@@ -218,7 +218,7 @@
     },
     "00668": {
       "name": "安克创新",
-      "score": 48.5,
+      "score": 50.3,
       "recommendation": "🟡 观望",
       "subscription_multiple": 0,
       "status": "expired",
@@ -226,7 +226,7 @@
       "listing_date": "2026/07/02",
       "pushed": true,
       "hot_pushed": false,
-      "last_seen": "2026-06-28T06:06:26.880487"
+      "last_seen": "2026-06-29T06:26:59.731435"
     },
     "02667": {
       "name": "同仁堂医养",
@@ -238,9 +238,81 @@
       "listing_date": "2026/07/07",
       "pushed": true,
       "hot_pushed": false,
-      "last_seen": "2026-06-28T06:06:26.880623"
+      "last_seen": "2026-06-29T06:26:59.731601"
+    },
+    "01770": {
+      "name": "东方科脉",
+      "score": 49.8,
+      "recommendation": "🟡 观望",
+      "subscription_multiple": 0,
+      "status": "open",
+      "apply_deadline": "2026/07/03",
+      "listing_date": "2026/07/08",
+      "pushed": true,
+      "hot_pushed": false,
+      "last_seen": "2026-06-29T06:27:04.995678"
+    },
+    "06880": {
+      "name": "Momenta-W",
+      "score": 49.8,
+      "recommendation": "🟡 观望",
+      "subscription_multiple": 0,
+      "status": "open",
+      "apply_deadline": "2026/07/03",
+      "listing_date": "2026/07/08",
+      "pushed": true,
+      "hot_pushed": false,
+      "last_seen": "2026-06-29T06:27:09.154148"
+    },
+    "07656": {
+      "name": "瑞为技术",
+      "score": 49.8,
+      "recommendation": "🟡 观望",
+      "subscription_multiple": 0,
+      "status": "open",
+      "apply_deadline": "2026/07/03",
+      "listing_date": "2026/07/08",
+      "pushed": true,
+      "hot_pushed": false,
+      "last_seen": "2026-06-29T06:27:13.784975"
+    },
+    "07687": {
+      "name": "易控智驾",
+      "score": 49.8,
+      "recommendation": "🟡 观望",
+      "subscription_multiple": 0,
+      "status": "open",
+      "apply_deadline": "2026/07/03",
+      "listing_date": "2026/07/08",
+      "pushed": true,
+      "hot_pushed": false,
+      "last_seen": "2026-06-29T06:27:18.855394"
+    },
+    "08090": {
+      "name": "宝盖新材",
+      "score": 49.8,
+      "recommendation": "🟡 观望",
+      "subscription_multiple": 0,
+      "status": "open",
+      "apply_deadline": "2026/07/03",
+      "listing_date": "2026/07/08",
+      "pushed": true,
+      "hot_pushed": false,
+      "last_seen": "2026-06-29T06:27:24.369637"
+    },
+    "09971": {
+      "name": "基本半导体",
+      "score": 60.6,
+      "recommendation": "🟠 建议申购",
+      "subscription_multiple": 0,
+      "status": "open",
+      "apply_deadline": "2026/07/03",
+      "listing_date": "2026/07/08",
+      "pushed": true,
+      "hot_pushed": false,
+      "last_seen": "2026-06-29T06:27:30.733178"
     }
   },
   "hkex_docs": {},
-  "last_check": "2026-06-28T06:06:26.880633"
+  "last_check": "2026-06-29T06:27:30.733195"
 }
