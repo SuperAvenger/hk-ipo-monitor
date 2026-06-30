@@ -238,7 +238,7 @@
       "listing_date": "2026/07/07",
       "pushed": true,
       "hot_pushed": false,
-      "last_seen": "2026-06-29T06:26:59.731601"
+      "last_seen": "2026-06-30T06:00:51.530765"
     },
     "01770": {
       "name": "东方科脉",
@@ -250,11 +250,11 @@
       "listing_date": "2026/07/08",
       "pushed": true,
       "hot_pushed": false,
-      "last_seen": "2026-06-29T06:27:04.995678"
+      "last_seen": "2026-06-30T06:00:51.530988"
     },
     "06880": {
       "name": "Momenta-W",
-      "score": 49.8,
+      "score": 55.1,
       "recommendation": "🟡 观望",
       "subscription_multiple": 0,
       "status": "open",
@@ -262,11 +262,11 @@
       "listing_date": "2026/07/08",
       "pushed": true,
       "hot_pushed": false,
-      "last_seen": "2026-06-29T06:27:09.154148"
+      "last_seen": "2026-06-30T06:00:51.531168"
     },
     "07656": {
       "name": "瑞为技术",
-      "score": 49.8,
+      "score": 55.1,
       "recommendation": "🟡 观望",
       "subscription_multiple": 0,
       "status": "open",
@@ -274,11 +274,11 @@
       "listing_date": "2026/07/08",
       "pushed": true,
       "hot_pushed": false,
-      "last_seen": "2026-06-29T06:27:13.784975"
+      "last_seen": "2026-06-30T06:00:51.531355"
     },
     "07687": {
       "name": "易控智驾",
-      "score": 49.8,
+      "score": 55.1,
       "recommendation": "🟡 观望",
       "subscription_multiple": 0,
       "status": "open",
@@ -286,11 +286,11 @@
       "listing_date": "2026/07/08",
       "pushed": true,
       "hot_pushed": false,
-      "last_seen": "2026-06-29T06:27:18.855394"
+      "last_seen": "2026-06-30T06:00:51.531500"
     },
     "08090": {
       "name": "宝盖新材",
-      "score": 49.8,
+      "score": 48.1,
       "recommendation": "🟡 观望",
       "subscription_multiple": 0,
       "status": "open",
@@ -298,7 +298,7 @@
       "listing_date": "2026/07/08",
       "pushed": true,
       "hot_pushed": false,
-      "last_seen": "2026-06-29T06:27:24.369637"
+      "last_seen": "2026-06-30T06:00:51.531651"
     },
     "09971": {
       "name": "基本半导体",
@@ -310,9 +310,117 @@
       "listing_date": "2026/07/08",
       "pushed": true,
       "hot_pushed": false,
-      "last_seen": "2026-06-29T06:27:30.733178"
+      "last_seen": "2026-06-30T06:00:51.531791"
+    },
+    "00537": {
+      "name": "普源精电",
+      "score": 48.0,
+      "recommendation": "🟡 观望",
+      "subscription_multiple": 0,
+      "status": "open",
+      "apply_deadline": "2026/07/06",
+      "listing_date": "2026/07/09",
+      "pushed": true,
+      "hot_pushed": false,
+      "last_seen": "2026-06-30T06:00:57.390055"
+    },
+    "01377": {
+      "name": "鼎泰高科",
+      "score": 45.0,
+      "recommendation": "🟡 观望",
+      "subscription_multiple": 0,
+      "status": "open",
+      "apply_deadline": "2026/07/06",
+      "listing_date": "2026/07/09",
+      "pushed": true,
+      "hot_pushed": false,
+      "last_seen": "2026-06-30T06:01:07.999039"
+    },
+    "02475": {
+      "name": "立讯精密",
+      "score": 46.5,
+      "recommendation": "🟡 观望",
+      "subscription_multiple": 0,
+      "status": "open",
+      "apply_deadline": "2026/07/06",
+      "listing_date": "2026/07/09",
+      "pushed": true,
+      "hot_pushed": false,
+      "last_seen": "2026-06-30T06:01:14.101376"
+    },
+    "02797": {
+      "name": "齐云山食品",
+      "score": 53.3,
+      "recommendation": "🟡 观望",
+      "subscription_multiple": 0,
+      "status": "open",
+      "apply_deadline": "2026/07/06",
+      "listing_date": "2026/07/09",
+      "pushed": true,
+      "hot_pushed": false,
+      "last_seen": "2026-06-30T06:01:20.280125"
+    },
+    "03752": {
+      "name": "珞石机器人",
+      "score": 56.8,
+      "recommendation": "🟡 观望",
+      "subscription_multiple": 0,
+      "status": "open",
+      "apply_deadline": "2026/07/06",
+      "listing_date": "2026/07/09",
+      "pushed": true,
+      "hot_pushed": false,
+      "last_seen": "2026-06-30T06:01:29.472926"
+    },
+    "06951": {
+      "name": "三环集团",
+      "score": 46.8,
+      "recommendation": "🟡 观望",
+      "subscription_multiple": 0,
+      "status": "open",
+      "apply_deadline": "2026/07/06",
+      "listing_date": "2026/07/09",
+      "pushed": true,
+      "hot_pushed": false,
+      "last_seen": "2026-06-30T06:01:39.726128"
+    },
+    "02249": {
+      "name": "晶合集成",
+      "score": 62.1,
+      "recommendation": "🟠 建议申购",
+      "subscription_multiple": 0,
+      "status": "open",
+      "apply_deadline": "2026/07/07",
+      "listing_date": "2026/07/10",
+      "pushed": true,
+      "hot_pushed": false,
+      "last_seen": "2026-06-30T06:01:50.637762"
+    },
+    "06745": {
+      "name": "滨化股份",
+      "score": 48.1,
+      "recommendation": "🟡 观望",
+      "subscription_multiple": 0,
+      "status": "open",
+      "apply_deadline": "2026/07/07",
+      "listing_date": "2026/07/10",
+      "pushed": true,
+      "hot_pushed": false,
+      "last_seen": "2026-06-30T06:01:57.913790"
+    },
+    "02523": {
+      "name": "永康控股",
+      "score": 46.3,
+      "recommendation": "🟡 观望",
+      "subscription_multiple": 0,
+      "status": "open",
+      "apply_deadline": "2026/07/08",
+      "listing_date": "2026/07/13",
+      "pushed": true,
+      "hot_pushed": false,
+      "last_seen": "2026-06-30T06:02:05.394037"
     }
   },
   "hkex_docs": {},
-  "last_check": "2026-06-29T06:27:30.733195"
+  "last_check": "2026-06-30T06:02:05.394049"
 }
