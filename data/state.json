@@ -410,17 +410,17 @@
     },
     "02523": {
       "name": "永康控股",
-      "score": 46.3,
+      "score": 49.8,
       "recommendation": "🟡 观望",
       "subscription_multiple": 0,
-      "status": "open",
+      "status": "expired",
       "apply_deadline": "2026/07/08",
       "listing_date": "2026/07/13",
       "pushed": true,
       "hot_pushed": false,
-      "last_seen": "2026-07-08T04:56:59.689565"
+      "last_seen": "2026-07-09T05:53:20.111822"
     }
   },
   "hkex_docs": {},
-  "last_check": "2026-07-08T04:56:59.689578"
+  "last_check": "2026-07-09T05:53:20.111834"
 }
