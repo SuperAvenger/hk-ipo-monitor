@@ -419,8 +419,20 @@
       "pushed": true,
       "hot_pushed": false,
       "last_seen": "2026-07-12T05:14:12.167986"
+    },
+    "03308": {
+      "name": "中际旭创",
+      "score": 45.0,
+      "recommendation": "🟡 观望",
+      "subscription_multiple": 0,
+      "status": "open",
+      "apply_deadline": "2026/07/27",
+      "listing_date": "2026/07/30",
+      "pushed": true,
+      "hot_pushed": false,
+      "last_seen": "2026-07-22T04:56:27.562535"
     }
   },
   "hkex_docs": {},
-  "last_check": "2026-07-21T04:56:37.930866"
+  "last_check": "2026-07-22T04:56:27.562549"
 }
