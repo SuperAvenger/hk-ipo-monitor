@@ -422,17 +422,17 @@
     },
     "03308": {
       "name": "中际旭创",
-      "score": 45.0,
+      "score": 46.8,
       "recommendation": "🟡 观望",
       "subscription_multiple": 0,
-      "status": "open",
+      "status": "expired",
       "apply_deadline": "2026/07/27",
       "listing_date": "2026/07/30",
       "pushed": true,
       "hot_pushed": false,
-      "last_seen": "2026-07-27T05:37:15.848838"
+      "last_seen": "2026-07-28T04:51:53.616662"
     }
   },
   "hkex_docs": {},
-  "last_check": "2026-07-27T05:37:15.848850"
+  "last_check": "2026-07-28T04:51:53.616675"
 }
