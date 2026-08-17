@@ -443,8 +443,20 @@
       "pushed": true,
       "hot_pushed": false,
       "last_seen": "2026-08-05T04:52:51.911369"
+    },
+    "03223": {
+      "name": "君正股份",
+      "score": 45.0,
+      "recommendation": "🟡 观望",
+      "subscription_multiple": 0,
+      "status": "open",
+      "apply_deadline": "2026/08/20",
+      "listing_date": "2026/08/25",
+      "pushed": true,
+      "hot_pushed": false,
+      "last_seen": "2026-08-17T02:50:57.885404"
     }
   },
   "hkex_docs": {},
-  "last_check": "2026-08-16T02:51:05.852910"
+  "last_check": "2026-08-17T02:50:57.885424"
 }
