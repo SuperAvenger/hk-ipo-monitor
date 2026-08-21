@@ -449,14 +449,14 @@
       "score": 57.2,
       "recommendation": "🟡 观望",
       "subscription_multiple": 0,
-      "status": "open",
+      "status": "expired",
       "apply_deadline": "2026/08/20",
       "listing_date": "2026/08/25",
       "pushed": true,
       "hot_pushed": false,
-      "last_seen": "2026-08-20T02:46:57.620963"
+      "last_seen": "2026-08-21T02:53:33.541346"
     }
   },
   "hkex_docs": {},
-  "last_check": "2026-08-20T02:46:57.620975"
+  "last_check": "2026-08-21T02:53:33.541357"
 }
