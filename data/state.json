@@ -455,8 +455,32 @@
       "pushed": true,
       "hot_pushed": false,
       "last_seen": "2026-08-23T02:53:31.179004"
+    },
+    "00625": {
+      "name": "希音─W",
+      "score": 49.8,
+      "recommendation": "🟡 观望",
+      "subscription_multiple": 0,
+      "status": "open",
+      "apply_deadline": "2026/08/27",
+      "listing_date": "2026/09/01",
+      "pushed": true,
+      "hot_pushed": false,
+      "last_seen": "2026-08-24T02:54:20.599239"
+    },
+    "09615": {
+      "name": "梅卡曼德机器人",
+      "score": 56.8,
+      "recommendation": "🟡 观望",
+      "subscription_multiple": 0,
+      "status": "open",
+      "apply_deadline": "2026/08/27",
+      "listing_date": "2026/09/01",
+      "pushed": true,
+      "hot_pushed": false,
+      "last_seen": "2026-08-24T02:54:28.553056"
     }
   },
   "hkex_docs": {},
-  "last_check": "2026-08-23T02:53:31.179015"
+  "last_check": "2026-08-24T02:54:28.553072"
 }
