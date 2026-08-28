@@ -461,26 +461,38 @@
       "score": 53.3,
       "recommendation": "🟡 观望",
       "subscription_multiple": 0,
-      "status": "open",
+      "status": "expired",
       "apply_deadline": "2026/08/27",
       "listing_date": "2026/09/01",
       "pushed": true,
       "hot_pushed": false,
-      "last_seen": "2026-08-27T12:06:18.099432"
+      "last_seen": "2026-08-28T13:28:18.549866"
     },
     "09615": {
       "name": "梅卡曼德机器人",
       "score": 56.8,
       "recommendation": "🟡 观望",
       "subscription_multiple": 0,
-      "status": "open",
+      "status": "expired",
       "apply_deadline": "2026/08/27",
       "listing_date": "2026/09/01",
       "pushed": true,
       "hot_pushed": false,
-      "last_seen": "2026-08-27T12:06:18.099611"
+      "last_seen": "2026-08-28T13:28:18.550034"
+    },
+    "02041": {
+      "name": "麦科田",
+      "score": 51.3,
+      "recommendation": "🟡 观望",
+      "subscription_multiple": 0,
+      "status": "open",
+      "apply_deadline": "2026/09/02",
+      "listing_date": "2026/09/07",
+      "pushed": true,
+      "hot_pushed": false,
+      "last_seen": "2026-08-28T13:28:23.748707"
     }
   },
   "hkex_docs": {},
-  "last_check": "2026-08-27T12:06:18.099621"
+  "last_check": "2026-08-28T13:28:23.748749"
 }
