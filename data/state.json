@@ -497,12 +497,12 @@
       "score": 59.1,
       "recommendation": "🟠 建议申购",
       "subscription_multiple": 0,
-      "status": "open",
+      "status": "expired",
       "apply_deadline": "2026/09/03",
       "listing_date": "2026/09/08",
       "pushed": true,
       "hot_pushed": false,
-      "last_seen": "2026-09-03T06:36:48.485646"
+      "last_seen": "2026-09-04T06:39:34.398433"
     },
     "03231": {
       "name": "优地机器人",
@@ -514,9 +514,9 @@
       "listing_date": "2026/09/09",
       "pushed": true,
       "hot_pushed": false,
-      "last_seen": "2026-09-03T06:36:48.485778"
+      "last_seen": "2026-09-04T06:39:34.398851"
     }
   },
   "hkex_docs": {},
-  "last_check": "2026-09-03T06:36:48.485788"
+  "last_check": "2026-09-04T06:39:34.398861"
 }
