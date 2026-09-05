@@ -490,7 +490,7 @@
       "listing_date": "2026/09/07",
       "pushed": true,
       "hot_pushed": false,
-      "last_seen": "2026-09-03T06:36:48.485483"
+      "last_seen": "2026-09-05T06:25:54.416213"
     },
     "09976": {
       "name": "江波龙",
@@ -502,21 +502,21 @@
       "listing_date": "2026/09/08",
       "pushed": true,
       "hot_pushed": false,
-      "last_seen": "2026-09-04T06:39:34.398433"
+      "last_seen": "2026-09-05T06:25:54.416473"
     },
     "03231": {
       "name": "优地机器人",
       "score": 56.8,
       "recommendation": "🟡 观望",
       "subscription_multiple": 0,
-      "status": "open",
+      "status": "expired",
       "apply_deadline": "2026/09/04",
       "listing_date": "2026/09/09",
       "pushed": true,
       "hot_pushed": false,
-      "last_seen": "2026-09-04T06:39:34.398851"
+      "last_seen": "2026-09-05T06:25:54.416599"
     }
   },
   "hkex_docs": {},
-  "last_check": "2026-09-04T06:39:34.398861"
+  "last_check": "2026-09-05T06:25:54.416608"
 }
