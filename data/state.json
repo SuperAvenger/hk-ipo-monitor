@@ -515,8 +515,20 @@
       "pushed": true,
       "hot_pushed": false,
       "last_seen": "2026-09-07T06:43:47.288235"
+    },
+    "06727": {
+      "name": "星环科技",
+      "score": 53.6,
+      "recommendation": "🟡 观望",
+      "subscription_multiple": 0,
+      "status": "open",
+      "apply_deadline": "2026/09/16",
+      "listing_date": "2026/09/21",
+      "pushed": true,
+      "hot_pushed": false,
+      "last_seen": "2026-09-11T06:45:35.352385"
     }
   },
   "hkex_docs": {},
-  "last_check": "2026-09-10T06:45:59.836502"
+  "last_check": "2026-09-11T06:45:35.352397"
 }
