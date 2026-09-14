@@ -526,9 +526,33 @@
       "listing_date": "2026/09/21",
       "pushed": true,
       "hot_pushed": false,
-      "last_seen": "2026-09-13T06:54:29.023281"
+      "last_seen": "2026-09-14T07:17:46.103072"
+    },
+    "06700": {
+      "name": "四方精创",
+      "score": 56.6,
+      "recommendation": "🟡 观望",
+      "subscription_multiple": 0,
+      "status": "open",
+      "apply_deadline": "2026/09/17",
+      "listing_date": "2026/09/22",
+      "pushed": true,
+      "hot_pushed": false,
+      "last_seen": "2026-09-14T07:17:52.074774"
+    },
+    "09856": {
+      "name": "纳真科技",
+      "score": 55.1,
+      "recommendation": "🟡 观望",
+      "subscription_multiple": 0,
+      "status": "open",
+      "apply_deadline": "2026/09/17",
+      "listing_date": "2026/09/22",
+      "pushed": true,
+      "hot_pushed": false,
+      "last_seen": "2026-09-14T07:17:57.605784"
     }
   },
   "hkex_docs": {},
-  "last_check": "2026-09-13T06:54:29.023293"
+  "last_check": "2026-09-14T07:17:57.605799"
 }
