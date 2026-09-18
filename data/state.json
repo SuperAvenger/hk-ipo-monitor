@@ -533,26 +533,26 @@
       "score": 56.6,
       "recommendation": "🟡 观望",
       "subscription_multiple": 0,
-      "status": "open",
+      "status": "expired",
       "apply_deadline": "2026/09/17",
       "listing_date": "2026/09/22",
       "pushed": true,
       "hot_pushed": false,
-      "last_seen": "2026-09-17T06:51:46.332537"
+      "last_seen": "2026-09-18T06:48:59.644510"
     },
     "09856": {
       "name": "纳真科技",
       "score": 55.1,
       "recommendation": "🟡 观望",
       "subscription_multiple": 0,
-      "status": "open",
+      "status": "expired",
       "apply_deadline": "2026/09/17",
       "listing_date": "2026/09/22",
       "pushed": true,
       "hot_pushed": false,
-      "last_seen": "2026-09-17T06:51:46.332688"
+      "last_seen": "2026-09-18T06:48:59.644708"
     }
   },
   "hkex_docs": {},
-  "last_check": "2026-09-17T06:51:46.332697"
+  "last_check": "2026-09-18T06:48:59.644719"
 }
