@@ -551,8 +551,56 @@
       "pushed": true,
       "hot_pushed": false,
       "last_seen": "2026-09-20T07:12:21.846256"
+    },
+    "03228": {
+      "name": "深圳市景旺电子",
+      "score": 50.1,
+      "recommendation": "🟡 观望",
+      "subscription_multiple": 0,
+      "status": "open",
+      "apply_deadline": "2026/09/24",
+      "listing_date": "2026/09/29",
+      "pushed": true,
+      "hot_pushed": false,
+      "last_seen": "2026-09-21T07:21:48.263314"
+    },
+    "03757": {
+      "name": "罗博特科智能科技",
+      "score": 54.5,
+      "recommendation": "🟡 观望",
+      "subscription_multiple": 0,
+      "status": "open",
+      "apply_deadline": "2026/09/24",
+      "listing_date": "2026/09/29",
+      "pushed": true,
+      "hot_pushed": false,
+      "last_seen": "2026-09-21T07:21:53.579960"
+    },
+    "06731": {
+      "name": "本末动力（北京）科技",
+      "score": 56.6,
+      "recommendation": "🟡 观望",
+      "subscription_multiple": 0,
+      "status": "open",
+      "apply_deadline": "2026/09/24",
+      "listing_date": "2026/09/29",
+      "pushed": true,
+      "hot_pushed": false,
+      "last_seen": "2026-09-21T07:21:58.430244"
+    },
+    "09607": {
+      "name": "肜程新材料",
+      "score": 48.1,
+      "recommendation": "🟡 观望",
+      "subscription_multiple": 0,
+      "status": "open",
+      "apply_deadline": "2026/09/24",
+      "listing_date": "2026/09/29",
+      "pushed": true,
+      "hot_pushed": false,
+      "last_seen": "2026-09-21T07:22:03.109445"
     }
   },
   "hkex_docs": {},
-  "last_check": "2026-09-20T07:12:21.846266"
+  "last_check": "2026-09-21T07:22:03.109459"
 }
