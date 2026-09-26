@@ -562,7 +562,7 @@
       "listing_date": "2026/09/29",
       "pushed": true,
       "hot_pushed": false,
-      "last_seen": "2026-09-25T06:47:13.490212"
+      "last_seen": "2026-09-26T06:46:12.043031"
     },
     "03757": {
       "name": "罗博特科智能科技",
@@ -574,7 +574,7 @@
       "listing_date": "2026/09/29",
       "pushed": true,
       "hot_pushed": false,
-      "last_seen": "2026-09-25T06:47:13.490421"
+      "last_seen": "2026-09-26T06:46:12.043221"
     },
     "06731": {
       "name": "本末动力（北京）科技",
@@ -586,7 +586,7 @@
       "listing_date": "2026/09/29",
       "pushed": true,
       "hot_pushed": false,
-      "last_seen": "2026-09-25T06:47:13.490561"
+      "last_seen": "2026-09-26T06:46:12.043358"
     },
     "09607": {
       "name": "彤程新材料",
@@ -598,21 +598,21 @@
       "listing_date": "2026/09/29",
       "pushed": true,
       "hot_pushed": false,
-      "last_seen": "2026-09-25T06:47:13.490681"
+      "last_seen": "2026-09-26T06:46:12.043509"
     },
     "06802": {
       "name": "欢创科技",
       "score": 55.1,
       "recommendation": "🟡 观望",
       "subscription_multiple": 0,
-      "status": "open",
+      "status": "expired",
       "apply_deadline": "2026/09/25",
       "listing_date": "2026/09/30",
       "pushed": true,
       "hot_pushed": false,
-      "last_seen": "2026-09-25T06:47:13.490791"
+      "last_seen": "2026-09-26T06:46:12.043654"
     }
   },
   "hkex_docs": {},
-  "last_check": "2026-09-25T06:47:13.490799"
+  "last_check": "2026-09-26T06:46:12.043668"
 }
