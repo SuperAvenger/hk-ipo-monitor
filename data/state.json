@@ -610,9 +610,21 @@
       "listing_date": "2026/09/30",
       "pushed": true,
       "hot_pushed": false,
-      "last_seen": "2026-09-27T07:15:49.145186"
+      "last_seen": "2026-09-28T07:51:00.424923"
+    },
+    "01256": {
+      "name": "奕斯伟计算",
+      "score": 51.6,
+      "recommendation": "🟡 观望",
+      "subscription_multiple": 0,
+      "status": "open",
+      "apply_deadline": "2026/10/06",
+      "listing_date": "2026/10/09",
+      "pushed": true,
+      "hot_pushed": false,
+      "last_seen": "2026-09-28T07:51:02.193477"
     }
   },
   "hkex_docs": {},
-  "last_check": "2026-09-27T07:15:49.145197"
+  "last_check": "2026-09-28T07:51:02.193494"
 }
