@@ -617,14 +617,26 @@
       "score": 51.6,
       "recommendation": "🟡 观望",
       "subscription_multiple": 0,
-      "status": "open",
+      "status": "expired",
       "apply_deadline": "2026/10/06",
       "listing_date": "2026/10/09",
       "pushed": true,
       "hot_pushed": false,
-      "last_seen": "2026-10-06T08:15:15.485526"
+      "last_seen": "2026-10-07T07:49:57.777831"
+    },
+    "02636": {
+      "name": "传音控股",
+      "score": 65.5,
+      "recommendation": "🟠 建议申购",
+      "subscription_multiple": 0,
+      "status": "open",
+      "apply_deadline": "2026/10/12",
+      "listing_date": "2026/10/15",
+      "pushed": true,
+      "hot_pushed": false,
+      "last_seen": "2026-10-07T07:49:59.861377"
     }
   },
   "hkex_docs": {},
-  "last_check": "2026-10-06T08:15:15.485535"
+  "last_check": "2026-10-07T07:49:59.861391"
 }
