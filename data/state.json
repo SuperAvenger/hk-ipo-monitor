@@ -629,14 +629,14 @@
       "score": 65.5,
       "recommendation": "🟠 建议申购",
       "subscription_multiple": 0,
-      "status": "open",
+      "status": "expired",
       "apply_deadline": "2026/10/12",
       "listing_date": "2026/10/15",
       "pushed": true,
       "hot_pushed": false,
-      "last_seen": "2026-10-12T08:12:26.159445"
+      "last_seen": "2026-10-13T08:38:11.160521"
     }
   },
   "hkex_docs": {},
-  "last_check": "2026-10-12T08:12:26.159457"
+  "last_check": "2026-10-13T08:38:11.160536"
 }
