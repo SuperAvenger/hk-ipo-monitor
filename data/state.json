@@ -635,8 +635,20 @@
       "pushed": true,
       "hot_pushed": false,
       "last_seen": "2026-10-13T08:38:11.160521"
+    },
+    "06157": {
+      "name": "瘦西湖文旅",
+      "score": 44.6,
+      "recommendation": "⚫ 建议回避",
+      "subscription_multiple": 0,
+      "status": "open",
+      "apply_deadline": "2026/10/20",
+      "listing_date": "2026/10/23",
+      "pushed": true,
+      "hot_pushed": false,
+      "last_seen": "2026-10-14T06:50:52.478841"
     }
   },
   "hkex_docs": {},
-  "last_check": "2026-10-13T08:38:11.160536"
+  "last_check": "2026-10-14T06:50:52.478857"
 }
