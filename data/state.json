@@ -653,26 +653,26 @@
       "score": 50.1,
       "recommendation": "🟡 观望",
       "subscription_multiple": 0,
-      "status": "open",
+      "status": "expired",
       "apply_deadline": "2026/10/23",
       "listing_date": "2026/10/28",
       "pushed": true,
       "hot_pushed": false,
-      "last_seen": "2026-10-23T06:39:37.488164"
+      "last_seen": "2026-10-24T06:36:52.155108"
     },
     "03275": {
       "name": "微亿智造",
       "score": 56.6,
       "recommendation": "🟡 观望",
       "subscription_multiple": 0,
-      "status": "open",
+      "status": "expired",
       "apply_deadline": "2026/10/23",
       "listing_date": "2026/10/28",
       "pushed": true,
       "hot_pushed": false,
-      "last_seen": "2026-10-23T06:39:37.488371"
+      "last_seen": "2026-10-24T06:36:52.155272"
     }
   },
   "hkex_docs": {},
-  "last_check": "2026-10-23T06:39:37.488380"
+  "last_check": "2026-10-24T06:36:52.155284"
 }
