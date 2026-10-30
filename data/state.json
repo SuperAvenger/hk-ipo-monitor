@@ -671,8 +671,92 @@
       "pushed": true,
       "hot_pushed": false,
       "last_seen": "2026-10-27T06:57:12.072963"
+    },
+    "00054": {
+      "name": "和美药业─B",
+      "score": 60.1,
+      "recommendation": "🟠 建议申购",
+      "subscription_multiple": 0,
+      "status": "open",
+      "apply_deadline": "2026/11/04",
+      "listing_date": "2026/11/09",
+      "pushed": true,
+      "hot_pushed": false,
+      "last_seen": "2026-10-30T07:50:52.505036"
+    },
+    "09621": {
+      "name": "远信储能",
+      "score": 57.5,
+      "recommendation": "🟡 观望",
+      "subscription_multiple": 0,
+      "status": "open",
+      "apply_deadline": "2026/11/04",
+      "listing_date": "2026/11/09",
+      "pushed": true,
+      "hot_pushed": false,
+      "last_seen": "2026-10-30T07:50:58.750665"
+    },
+    "07672": {
+      "name": "芯德半导体",
+      "score": 62.1,
+      "recommendation": "🟠 建议申购",
+      "subscription_multiple": 0,
+      "status": "open",
+      "apply_deadline": "2026/11/05",
+      "listing_date": "2026/11/10",
+      "pushed": true,
+      "hot_pushed": false,
+      "last_seen": "2026-10-30T07:51:04.832927"
+    },
+    "09917": {
+      "name": "登临科技─P",
+      "score": 53.6,
+      "recommendation": "🟡 观望",
+      "subscription_multiple": 0,
+      "status": "open",
+      "apply_deadline": "2026/11/05",
+      "listing_date": "2026/11/10",
+      "pushed": true,
+      "hot_pushed": false,
+      "last_seen": "2026-10-30T07:51:11.034755"
+    },
+    "02206": {
+      "name": "新荷花",
+      "score": 51.3,
+      "recommendation": "🟡 观望",
+      "subscription_multiple": 0,
+      "status": "open",
+      "apply_deadline": "2026/11/06",
+      "listing_date": "2026/11/11",
+      "pushed": true,
+      "hot_pushed": false,
+      "last_seen": "2026-10-30T07:51:17.244381"
+    },
+    "02681": {
+      "name": "宏芯宇",
+      "score": 60.6,
+      "recommendation": "🟠 建议申购",
+      "subscription_multiple": 0,
+      "status": "open",
+      "apply_deadline": "2026/11/09",
+      "listing_date": "2026/11/12",
+      "pushed": true,
+      "hot_pushed": false,
+      "last_seen": "2026-10-30T07:51:23.815635"
+    },
+    "01821": {
+      "name": "中旅港澳",
+      "score": 47.0,
+      "recommendation": "🟡 观望",
+      "subscription_multiple": 0,
+      "status": "open",
+      "apply_deadline": "N/A",
+      "listing_date": "2026/11/26",
+      "pushed": true,
+      "hot_pushed": false,
+      "last_seen": "2026-10-30T07:51:29.764571"
     }
   },
   "hkex_docs": {},
-  "last_check": "2026-10-29T07:44:49.804171"
+  "last_check": "2026-10-30T07:51:29.764593"
 }
