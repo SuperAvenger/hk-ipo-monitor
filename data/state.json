@@ -689,12 +689,12 @@
       "score": 57.5,
       "recommendation": "🟡 观望",
       "subscription_multiple": 0,
-      "status": "open",
+      "status": "expired",
       "apply_deadline": "2026/11/04",
       "listing_date": "2026/11/09",
       "pushed": true,
       "hot_pushed": false,
-      "last_seen": "2026-11-04T08:14:50.742439"
+      "last_seen": "2026-11-05T08:40:05.349424"
     },
     "07672": {
       "name": "芯德半导体",
@@ -706,7 +706,7 @@
       "listing_date": "2026/11/10",
       "pushed": true,
       "hot_pushed": false,
-      "last_seen": "2026-11-04T08:14:50.742588"
+      "last_seen": "2026-11-05T08:40:05.349552"
     },
     "09917": {
       "name": "登临科技─P",
@@ -718,7 +718,7 @@
       "listing_date": "2026/11/10",
       "pushed": true,
       "hot_pushed": false,
-      "last_seen": "2026-11-04T08:14:50.742720"
+      "last_seen": "2026-11-05T08:40:05.349625"
     },
     "02206": {
       "name": "新荷花",
@@ -730,7 +730,7 @@
       "listing_date": "2026/11/11",
       "pushed": true,
       "hot_pushed": false,
-      "last_seen": "2026-11-04T08:14:50.742819"
+      "last_seen": "2026-11-05T08:40:05.349683"
     },
     "02681": {
       "name": "宏芯宇",
@@ -742,7 +742,7 @@
       "listing_date": "2026/11/12",
       "pushed": true,
       "hot_pushed": false,
-      "last_seen": "2026-11-04T08:14:50.743011"
+      "last_seen": "2026-11-05T08:40:05.349794"
     },
     "01821": {
       "name": "中旅港澳",
@@ -754,7 +754,7 @@
       "listing_date": "2026/11/26",
       "pushed": true,
       "hot_pushed": false,
-      "last_seen": "2026-11-04T08:14:50.743117"
+      "last_seen": "2026-11-05T08:40:10.977166"
     },
     "02065": {
       "name": "一微科技",
@@ -766,9 +766,21 @@
       "listing_date": "2026/11/12",
       "pushed": true,
       "hot_pushed": false,
-      "last_seen": "2026-11-04T08:14:50.742921"
+      "last_seen": "2026-11-05T08:40:05.349738"
+    },
+    "06935": {
+      "name": "国星宇航",
+      "score": 46.3,
+      "recommendation": "🟡 观望",
+      "subscription_multiple": 0,
+      "status": "open",
+      "apply_deadline": "2026/11/10",
+      "listing_date": "2026/11/13",
+      "pushed": true,
+      "hot_pushed": false,
+      "last_seen": "2026-11-05T08:40:10.977020"
     }
   },
   "hkex_docs": {},
-  "last_check": "2026-11-04T08:14:50.743125"
+  "last_check": "2026-11-05T08:40:10.977173"
 }
