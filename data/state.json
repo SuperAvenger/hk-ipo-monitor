@@ -694,7 +694,7 @@
       "listing_date": "2026/11/09",
       "pushed": true,
       "hot_pushed": false,
-      "last_seen": "2026-11-05T08:40:05.349424"
+      "last_seen": "2026-11-07T07:55:30.372262"
     },
     "07672": {
       "name": "芯德半导体",
@@ -706,7 +706,7 @@
       "listing_date": "2026/11/10",
       "pushed": true,
       "hot_pushed": false,
-      "last_seen": "2026-11-06T08:40:44.533157"
+      "last_seen": "2026-11-07T07:55:30.372444"
     },
     "09917": {
       "name": "登临科技─P",
@@ -718,19 +718,19 @@
       "listing_date": "2026/11/10",
       "pushed": true,
       "hot_pushed": false,
-      "last_seen": "2026-11-06T08:40:44.533320"
+      "last_seen": "2026-11-07T07:55:30.372560"
     },
     "02206": {
       "name": "新荷花",
       "score": 51.3,
       "recommendation": "🟡 观望",
       "subscription_multiple": 0,
-      "status": "open",
+      "status": "expired",
       "apply_deadline": "2026/11/06",
       "listing_date": "2026/11/11",
       "pushed": true,
       "hot_pushed": false,
-      "last_seen": "2026-11-06T08:40:44.533451"
+      "last_seen": "2026-11-07T07:55:30.372633"
     },
     "02681": {
       "name": "宏芯宇",
@@ -742,7 +742,7 @@
       "listing_date": "2026/11/12",
       "pushed": true,
       "hot_pushed": false,
-      "last_seen": "2026-11-06T08:40:44.533693"
+      "last_seen": "2026-11-07T07:55:30.372756"
     },
     "01821": {
       "name": "中旅港澳",
@@ -754,7 +754,7 @@
       "listing_date": "2026/11/26",
       "pushed": true,
       "hot_pushed": false,
-      "last_seen": "2026-11-06T08:40:44.533943"
+      "last_seen": "2026-11-07T07:55:30.372932"
     },
     "02065": {
       "name": "一微科技",
@@ -766,7 +766,7 @@
       "listing_date": "2026/11/12",
       "pushed": true,
       "hot_pushed": false,
-      "last_seen": "2026-11-06T08:40:44.533574"
+      "last_seen": "2026-11-07T07:55:30.372688"
     },
     "06935": {
       "name": "国星宇航",
@@ -778,9 +778,9 @@
       "listing_date": "2026/11/13",
       "pushed": true,
       "hot_pushed": false,
-      "last_seen": "2026-11-06T08:40:44.533816"
+      "last_seen": "2026-11-07T07:55:30.372832"
     }
   },
   "hkex_docs": {},
-  "last_check": "2026-11-06T08:40:44.533972"
+  "last_check": "2026-11-07T07:55:30.372941"
 }
