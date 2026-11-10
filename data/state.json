@@ -737,12 +737,12 @@
       "score": 60.6,
       "recommendation": "🟠 建议申购",
       "subscription_multiple": 0,
-      "status": "open",
+      "status": "expired",
       "apply_deadline": "2026/11/09",
       "listing_date": "2026/11/12",
       "pushed": true,
       "hot_pushed": false,
-      "last_seen": "2026-11-09T08:48:19.126450"
+      "last_seen": "2026-11-10T08:54:46.967640"
     },
     "01821": {
       "name": "中旅港澳",
@@ -754,19 +754,19 @@
       "listing_date": "2026/11/26",
       "pushed": true,
       "hot_pushed": false,
-      "last_seen": "2026-11-09T08:48:19.126613"
+      "last_seen": "2026-11-10T08:54:46.967820"
     },
     "02065": {
       "name": "一微科技",
       "score": 55.1,
       "recommendation": "🟡 观望",
       "subscription_multiple": 0,
-      "status": "open",
+      "status": "expired",
       "apply_deadline": "2026/11/09",
       "listing_date": "2026/11/12",
       "pushed": true,
       "hot_pushed": false,
-      "last_seen": "2026-11-09T08:48:19.126342"
+      "last_seen": "2026-11-10T08:54:46.967475"
     },
     "06935": {
       "name": "国星宇航",
@@ -778,9 +778,9 @@
       "listing_date": "2026/11/13",
       "pushed": true,
       "hot_pushed": false,
-      "last_seen": "2026-11-09T08:48:19.126530"
+      "last_seen": "2026-11-10T08:54:46.967744"
     }
   },
   "hkex_docs": {},
-  "last_check": "2026-11-09T08:48:19.126619"
+  "last_check": "2026-11-10T08:54:46.967825"
 }
