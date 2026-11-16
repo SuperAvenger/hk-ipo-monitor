@@ -754,7 +754,7 @@
       "listing_date": "2026/11/26",
       "pushed": true,
       "hot_pushed": false,
-      "last_seen": "2026-11-15T08:34:03.907242"
+      "last_seen": "2026-11-16T08:43:45.106773"
     },
     "02065": {
       "name": "一微科技",
@@ -779,8 +779,20 @@
       "pushed": true,
       "hot_pushed": false,
       "last_seen": "2026-11-11T08:33:10.452601"
+    },
+    "09941": {
+      "name": "先通医药─B",
+      "score": 58.6,
+      "recommendation": "🟠 建议申购",
+      "subscription_multiple": 0,
+      "status": "open",
+      "apply_deadline": "2026/11/19",
+      "listing_date": "2026/11/24",
+      "pushed": true,
+      "hot_pushed": false,
+      "last_seen": "2026-11-16T08:43:45.106634"
     }
   },
   "hkex_docs": {},
-  "last_check": "2026-11-15T08:34:03.907255"
+  "last_check": "2026-11-16T08:43:45.106780"
 }
