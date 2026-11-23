@@ -665,12 +665,12 @@
       "score": 56.6,
       "recommendation": "🟡 观望",
       "subscription_multiple": 0,
-      "status": "expired",
-      "apply_deadline": "2026/10/23",
-      "listing_date": "2026/10/28",
+      "status": "open",
+      "apply_deadline": "2026/12/01",
+      "listing_date": "2026/12/04",
       "pushed": true,
       "hot_pushed": false,
-      "last_seen": "2026-10-27T06:57:12.072963"
+      "last_seen": "2026-11-23T09:56:52.472698"
     },
     "00054": {
       "name": "和美药业─B",
@@ -754,7 +754,7 @@
       "listing_date": "2026/11/26",
       "pushed": true,
       "hot_pushed": false,
-      "last_seen": "2026-11-22T08:57:41.159796"
+      "last_seen": "2026-11-23T09:56:52.472555"
     },
     "02065": {
       "name": "一微科技",
@@ -794,5 +794,5 @@
     }
   },
   "hkex_docs": {},
-  "last_check": "2026-11-22T08:57:41.159809"
+  "last_check": "2026-11-23T09:56:52.472705"
 }
