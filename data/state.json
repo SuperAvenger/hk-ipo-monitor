@@ -670,7 +670,7 @@
       "listing_date": "2026/12/04",
       "pushed": true,
       "hot_pushed": false,
-      "last_seen": "2026-11-26T10:08:41.070923"
+      "last_seen": "2026-11-27T10:14:07.698783"
     },
     "00054": {
       "name": "和美药业─B",
@@ -791,8 +791,32 @@
       "pushed": true,
       "hot_pushed": false,
       "last_seen": "2026-11-22T08:57:41.159636"
+    },
+    "03364": {
+      "name": "袁记食品",
+      "score": 54.8,
+      "recommendation": "🟡 观望",
+      "subscription_multiple": 0,
+      "status": "open",
+      "apply_deadline": "2026/12/02",
+      "listing_date": "2026/12/07",
+      "pushed": true,
+      "hot_pushed": false,
+      "last_seen": "2026-11-27T10:14:14.880890"
+    },
+    "03707": {
+      "name": "贝斯特材",
+      "score": 51.6,
+      "recommendation": "🟡 观望",
+      "subscription_multiple": 0,
+      "status": "open",
+      "apply_deadline": "2026/12/02",
+      "listing_date": "2026/12/07",
+      "pushed": true,
+      "hot_pushed": false,
+      "last_seen": "2026-11-27T10:14:18.295111"
     }
   },
   "hkex_docs": {},
-  "last_check": "2026-11-26T10:08:41.070936"
+  "last_check": "2026-11-27T10:14:18.295123"
 }
